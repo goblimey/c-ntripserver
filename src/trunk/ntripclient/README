@@ -1,0 +1,197 @@
+----------------------------------------------------------------------
+                NTRIP Client for POSIX systems
+----------------------------------------------------------------------
+
+Easy example NTRIP client for POSIX systems.
+Copyright (C) 2003-2007 by Dirk Stoecker <soft@dstoecker.de>
+    
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+or read http://www.gnu.org/licenses/gpl.txt
+
+Files in ntripclient.zip
+-----------------------------
+ntripclient.c:    Ntrip POSIX client source code
+serial.c:         source code to support for serial output
+README:           Dokumentation
+startntripclient: Shell script to start client
+makefile:         Easy makefile to build source
+
+Ntrip
+-----
+The ntripclient is an HTTP client based on 'Networked Transport
+of RTCM via Internet Protocol' (Ntrip). This is an application-level 
+protocol streaming Global Navigation Satellite System (GNSS) data over 
+the Internet. Ntrip Version 1.0 is a generic, stateless protocol based 
+on the Hypertext Transfer Protocol HTTP/1.1. The HTTP objects are 
+enhanced to GNSS data streams.
+
+The primary motivation for Ntrip Version 2.0 is to develop a fully 
+HTTP-compatible Internet protocol standard that would work with proxy 
+servers and to add an optional data transport via UDP. Hence, one 
+Ntrip Version 2.0 transport approach is still based on HTTP1.1 on top 
+of TCP. The second Ntrip Version 2.0 transport approach is based on 
+both, the Internet Standard Protocol RTSP (Real Time Streaming Protocol) 
+for stream control on top of TCP and the Internet Standard Protocol RTP 
+(Real Time Transport Protocol) for data transport on top of 
+connectionless UDP.
+
+Ntrip is designed for disseminating differential correction data 
+(e.g in the RTCM-104 format) or other kinds of GNSS streaming data to
+stationary or mobile users over the Internet, allowing simultaneous PC,
+Laptop, PDA, or receiver connections to a broadcasting host. Ntrip 
+supports Wireless Internet access through Mobile IP Networks like GSM, 
+GPRS, EDGE, or UMTS.
+
+Ntrip is implemented in three system software components: NtripClients, 
+NtripServers and NtripCasters. The NtripCaster is the actual HTTP 
+server program whereas NtripClient and NtripServer are acting as HTTP 
+clients.
+
+ntripclient
+-----------
+This POSIX Ntrip client program is written under GNU General Public 
+License in C programming language. The program reads data from an Ntrip 
+Broadcaster and writes on standard output for further redirection 
+of data to a file or COM-port. PLEASE NOTE THAT THIS PROGRAM VERSION
+DOES NOT HANDLE POTENTIALLY OCCURRING INTERRUPTIONS OF COMMUNICATION
+OR NETWORK CONGESTION SITUATIONS. Its distribution may stimulate
+those intending to write their own client program.
+
+Call the program with following arguments:
+
+./ntripclient -s server -u user ...
+ -m --mountpoint the requested data set or sourcetable filtering criteria
+ -s --server     the server name or address
+ -p --password   the login password
+ -r --port       the server port number (default 2101)
+ -u --user       the user name
+ -M --mode       mode for data request
+     Valid modes are:
+     1, h, http     NTRIP Version 2.0 Caster in TCP/IP mode
+     2, r, rtsp     NTRIP Version 2.0 Caster in RTSP/RTP mode
+     3, n, ntrip1   NTRIP Version 1.0 Caster
+     4, a, auto     automatic detection (default)
+     5, u, udp      NTRIP Version 2.0 Caster in UDP mode
+or using an URL:
+./ntripclient ntrip:mountpoint[/user[:password]][@[server][:port][@proxyhost[:proxyport]]][;nmea]
+
+Expert options:
+ -n --nmea       NMEA string for sending to server
+ -b --bitrate    output bitrate
+ -I --initudp    send initial UDP packet for firewall handling
+ -P --udpport    set the local UDP port
+ -S --proxyhost  proxy name or address
+ -R --proxyport  proxy port, optional (default 2101)
+
+Serial input/output:
+ -D --serdevice  serial device for output
+ -B --baud       baudrate for serial device
+ -T --stopbits   stopbits for serial device
+ -C --protocol   protocol for serial device
+ -Y --parity     parity for serial device
+ -A --databits   databits for serial device
+ -l --serlogfile logfile for serial data
+
+The argument '-h' will cause a HELP on the screen.
+Without any argument ntripclient will provide the a table of
+available resources (sourcetable).
+
+Sourcetable filtering
+----------------------
+A missing argument '-m' leads to the output of the complete broadcaster
+sourcetable. This may comprise hundreds of lines in case of large 
+networks. To limit the output, the sourcetable contents can be filtered 
+through entering the argument '-m' followed by a sequence of query strings,
+one for each sourcetable data field. Only those sourcetable lines are
+returned from the broadcaster whoes data fields match the corresponding
+query strings. A sequence of query strings has to be initiated by a '?'
+and a semicolon is acting as query string delimiter in analogy to the
+sourcetable data field delimiter.
+
+Note that for fully understanding the sourcetable filtering option
+you have to make yourself familiar with the details of the sourcetable
+contents. In general, search criterias can be applied on each sourcetable 
+data field.
+
+The following query string operators are available for integer and
+floating-point numbers in the sourcetable lines:
+
+- Equation operators: <, >, >=, <=, =, != (not equal)
+- Approximation operator: ~n (find value with minimal distance to n)
+
+The following query string operators are available for alphanumeric
+strings in the sourcetable lines:
+
+- Wildcard operator: '*' means any number of characters
+- Alternation operator: expression|expression
+- Grouping operator: (expression)
+- Any character matching for strings (case insensitivity)
+
+The following operators are available for both text as well as integer
+and floating-point numbers in the sourcetable lines:
+
+- Logical operators: ! (NOT), & (AND), | (OR)
+- Grouping operator: [!] (Expression)
+
+Examples:
+
+- Searching in a sourcetable for streams in Germany would require
+  entering the '-m' argument followed by
+  the query string:
+  ?STR;;;;;;DEU
+
+- Searching in a sourcetable for free streams fom the EUREF network and
+  coming from the Frankfurt area would require entering the '-m' argument
+  followed by the query string:
+  ?STR;;;;;;;EUREF;;=>50&<=51;=>8.1&<8.6;;;;;N
+
+Compilation/Installation
+------------------------
+Please extract the archive and copy its contents into an appropriate
+directory. Compile the source code under POSIX systems by calling 'make'.
+
+To compile the source code on a Windows system where a mingw gcc
+compiler is available, you may like to run the following command:
+
+gcc -DWINDOWSVERSION -o ntripclient.exe ntripclient.c -lwsock32
+
+Registration
+------------
+Some of the data streams (mountpoints) from an NtripCaster may be
+available for test, demonstration, and evaluation purposes and
+accessible without authentication/authorization. For accessing other
+data streams (mountpoints) the user needs a user-ID and a
+user password. Authorization can be provided for a single stream,
+for a group of streams (network) or for all available streams.
+Currently, registration can be requested via the registration form
+on http://igs.bkg.bund.de/index_ntrip_reg.htm
+
+Ntrip Broadaster Address and Port
+---------------------------------
+The current Internet address of the Ntrip Broadcaster is
+www.euref-ip.net. The port number is 2101.
+
+Disclaimer
+----------
+Note that this ntripclient program is for experimental use
+only. The BKG disclaims any liability nor responsibility to any 
+person or entity with respect to any loss or damage caused, or alleged 
+to be caused, directly or indirectly by the use and application of the 
+Ntrip technology.
+
+Further Information
+-------------------
+http://igs.bkg.bund.de/index_ntrip.htm
+euref-ip@bkg.bund.de

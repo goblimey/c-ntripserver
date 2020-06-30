@@ -1,0 +1,28 @@
+im Anhang finden Sie die Aufzeichnung von www.igs-ip.net/CLCK4 für etwa 1.5
+Stunden. Es handelt sich um den Zeitraum 08-04-23 10:57:20 bis etwa 08-04-23
+12:26:48. In den 9
+Spalten findet sich die Information:
+
+1. GPS-Woche
+2. Sekunde der GPS-Woche
+3. PRN
+4. IODC
+5. IODE
+6. clock-Corr[m]
+7. radial-Corr[m]
+8. along-track-Corr[m]
+9. out-of-plane-Corr[m]
+
+Auszug aus der Datei:
+
+1476 298631.0 G01    51  51     -6.968      0.570   -0.791    0.056
+1476 298631.0 G04   114 114      4.299      1.224   -1.114   -0.399
+1476 298631.0 G11     3   3      4.533      1.530   -0.479   -0.088
+1476 298631.0 G13    56  56     -4.364      1.414    1.432   -1.260
+1476 298631.0 G17    70  70     -1.062      0.029   -1.777   -0.979
+1476 298631.0 G20    84  84      3.043      1.561    0.153   -0.136
+1476 298631.0 G23    24  24     -3.962      0.155   -1.096    0.449
+1476 298631.0 G25    49  49      5.367      1.069   -1.236   -0.805
+1476 298631.0 G31    66  66      1.343      0.055    0.507    0.609
+1476 298631.0 G32    58  58     -6.484      0.966   -0.683    0.383
+...

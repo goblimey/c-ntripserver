@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <title>BNC OpenStreetMap View</title>
+    <style type="text/css">
+      html, body, #basicMap {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+      }
+    </style>
+
+    <script src="http://openlayers.org/api/OpenLayers.js" ></script>
+
+    <script>
+      var map;
+      var markers;
+      var marker;
+      var icon;  
+      var traceIcon;
+      var fromProjection;
+      var toProjection;
+      var dotSize;
+      var dotColor;
+      var zoom;
+
+      function initialize(lat, lon, mapWinDotSize, mapWinDotColor) {
+        dotSize = mapWinDotSize;
+	dotColor = mapWinDotColor;
+
+        if (dotSize > 10) dotSize = 10;
+
+        map = new OpenLayers.Map("basicMap",
+                                 {controls:[
+                                  new OpenLayers.Control.Navigation(),
+                                  new OpenLayers.Control.PanZoomBar()]});
+        fromProjection = new OpenLayers.Projection("EPSG:4326");   // WGS 1984
+        toProjection   = new OpenLayers.Projection("EPSG:900913"); // Spherical Mercator
+        zoom           = 0; 
+
+        map.addLayer(new OpenLayers.Layer.OSM());
+        var position = new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection);
+
+        var size    = new OpenLayers.Size(40,40);
+        var offset  = new OpenLayers.Pixel(-size.w/2, -size.h/2);
+        icon        = new OpenLayers.Icon("qrc:///map/crosshair.png", size, offset);
+
+        var sizeT   = new OpenLayers.Size(dotSize,dotSize);
+	var offsetT = new OpenLayers.Pixel(-sizeT.w/2, -13);
+	if (dotColor == 1) {
+          traceIcon   = new OpenLayers.Icon("qrc:///map/reddot.png", sizeT, offsetT);
+	}
+	if (dotColor == 2) {
+          traceIcon   = new OpenLayers.Icon("qrc:///map/yellowdot.png", sizeT, offsetT);
+	}
+
+        markers = new OpenLayers.Layer.Markers("Markers");
+        marker  = new OpenLayers.Marker(position, icon);
+        markers.addMarker(marker);
+        
+        map.addLayer(markers);
+
+        map.setCenter(position, 3);
+      }
+
+      function gotoLocation(lat, lon) {
+        var position = new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection);
+        if (zoom == 0) {
+          zoom = 15;
+          map.setCenter(position, zoom);
+        }
+        else {
+          map.setCenter(position);
+        }
+        markers.removeMarker(marker);
+        marker = new OpenLayers.Marker(position, icon);
+        markers.addMarker(marker);
+        if (dotSize > 0) {
+          var trace = new OpenLayers.Marker(position, traceIcon.clone());
+          markers.addMarker(trace);
+        }
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+    <div id="basicMap"></div>
+  </body>
+
+</html>

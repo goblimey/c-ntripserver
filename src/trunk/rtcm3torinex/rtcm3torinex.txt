@@ -1,0 +1,137 @@
+Manual for rtcm3torinex
+
+The program rtcm3torinex is an real-time converter from NTRIP streamed RTCM3
+data into the RINEX format.
+
+RTCM3 defines a number of message types. Among them are the following:
+
+Message
+Type  Contains information about
+--------------------------------------------------------------------------
+1001  GPS L1 code and phase
+1002  GPS L1 code and phase and ambiguities and carrier to noise ratio
+1003  GPS L1 and L1 code and phase
+1004  GPS L1 and L2 code and phase and ambiguities and carrier to noise ratio
+1005  Station coordinates XZY for antenna reference point
+1006  Station coordinates XYZ for antenna reference point and antenna height
+1007  Antenna descriptor and ID
+1008  Antenna serial number
+1009  GLONASS L1 code and phase
+1010  GLONASS L1 code and phase and ambiguities and carrier to noise ratio
+1011  GLONASS L1 and L1 code and phase
+1012  GLONASS L1 and L2 code and phase and ambiguities and carrier to noise ratio
+1013  Modified julian date, leep second, configured message types and intervall
+1014-1017 Network RTK (MAK) messages
+1019  GPS Ephemeris
+1020  GLONASS Ephemeris
+1045-1046 Galileo Ephemeris
+1071-1077 GPS-MSM data
+1081-1087 GLONASS-MSM data
+1091-1097 Galileo-MSM data
+1101-1107 SBAS-MSM data
+1111-1117 QZSS-MSM data
+1121-1127 BeiDou-MSM data
+4088-4095 Proprietary messages (under development)
+
+Note that this version of rtcm3torinex only handles RTCM3 message types 1001,
+1002, 1003, 1004, 1009, 1010, 1011, 1012, 1013, 1019, 1020, 1045, 1046,
+1071-1077, 1081-1087, 1091-1097, 1101-1107, 1111-1117 and 1121-1127.
+
+The generated RINEX is somewhat limited due to the streaming character of the
+conversion:
+
+ - Header records can only represent data, which is known after receiving the
+   very first epoch. Data rate, position, number of observations and any such
+   additional fields cannot be provided.
+ - The number of observables cannot change during the program runtime. Only
+   the observables, which exist in the first epoch are output. If there
+   are new observables later on, these are ignored.
+   The Option --changeobs removes that limitation, but not many tools can use
+   the resulting files which include header change records.
+ - Only known message types are interpreted. Send me new RTCM3 data files and
+   data support can be improved. See contact address at the end of this document.
+ - If the ambiguity field in the RTCM3 data is not set, the output will be no
+   valid RINEX. All values will be stored modulo 299792.458. A COMMENT line
+   will tell you, when this happens. It would be necessary to approximately
+   calculate the range to fix the ambiguity (needing ephemeris/alamanac and
+   easy positioning algorithm).
+
+Usage: ./rtcm3torinex -s server -u user ...
+ -d --data             the requested data set
+ -f --headerfile       file for RINEX header information
+ -s --server           the server name or address
+ -p --password         the login password
+ -r --port             the server port number (default 2101)
+ -t --timeout          timeout in seconds (default 60)
+ -u --user             the user name
+ -E --gpsephemeris     output file for GPS ephemeris data
+ -G --glonassephemeris output file for GLONASS ephemeris data
+ -3 --rinex3           output RINEX type 3 data
+ -S --proxyhost        proxy name or address
+ -R --proxyport        proxy port, optional (default 2101)
+ -n --nmea             NMEA string for sending to server
+ -O --changeobs        Add observation type change header lines
+ -M --mode             mode for data request
+     Valid modes are:
+     1, h, http     NTRIP Version 2.0 Caster in TCP/IP mode
+     2, r, rtsp     NTRIP Version 2.0 Caster in RTSP/RTP mode
+     3, n, ntrip1   NTRIP Version 1.0 Caster
+     4, a, auto     automatic detection (default)
+
+The fields --user and --password are used to specify the access data for the
+NTRIP server. The arguments --server and --port are used to specify the NTRIP
+server itself (defaults to "www.euref-ip.net" port 2101). The Argument --data
+must be used to specify the RTCM3 input data stream. If it is not given, you
+will be shown the source table of the selected NTRIP caster.
+
+Alternatively a single text of the form
+"ntrip:data[/user[:password]][@[server][:port][@proxyhost[:proxyport]]][;nmea]"
+can be used. Everything in brackets is optional.
+
+Additionally the argument --headerfile can be used to provide additional header
+information. The file must contain normal RINEX observation file header lines.
+The given lines overwrite the automatical generated lines. Overwriting the
+lines "# / TYPES OF OBSERV" and "TIME OF FIRST OBS" usually is a bad idea and
+you will get warned if you do so. The line "END OF HEADER" is ignored.
+Unknown lines or COMMENT lines will be appended before the "END OF HEADER".
+
+NOTE: The tool does not check the input lines for validity. So be sure to
+use correct RINEX specifiers as well as correct alignment.
+
+To stop RINEX output send the program a killing signal. Following signal
+sources are supported:
+
+signal    number  usual source of the signal
+---------------------------------------------------------------------------
+SIGINT       2    pressing CTRL+C in the shell running the tool
+SIGQUIT      3    pressing CTRL-\ or sending QUIT signal
+SIGTERM     15    called kill <num> with the process number of rtcm3torinex
+SIGPIPE     13    the output or input of rtcm3torinex has been closed
+
+The programm will be terminated after the current epoch has been finished.
+You will not get corrupted RINEX files.
+
+When compiling the program with older gcc versions running the `make'
+command, you may receive an informative error message saying
+
+rtcm3torinex.c: In function `signalhandler_alarm':
+rtcm3torinex.c:1240: warning: `noreturn' function does return
+
+This is most likely a compiler problem which only concerns the optimization
+and is thus not critical. New compilers will not show this problem.
+
+Program written by
+
+Dirk Stoecker
+Alberding GmbH
+http://www.alberding.eu/
+
+for
+
+Federal Agency for Cartography and Geodesy (BKG)
+Richard-Strauss-Allee 11
+D-60598 Frankfurt
+http://igs.bkg.bund.de/index_ntrip.htm
+
+Contact Dirk Stoecker [stoecker@alberding.eu] or [euref-ip@bkg.bund.de]
+with your comments, suggestions, improvements, patches, ...

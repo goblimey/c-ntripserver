@@ -1,0 +1,40 @@
+#!/bin/sh
+
+if [ $# -lt 2 ]
+then
+ echo "Usage: $0 <input> <output>"
+ exit 1
+fi
+
+inpFile=$1
+outFile=$2
+
+grep " NEU " ${inpFile} > neu_tmp
+
+gnuplot << EOF
+
+set term png
+set output "${outFile}"
+
+set xdata time
+set timefmt "%y-%m-%d %H:%M:%S"
+
+set format x "%H:%M"
+
+set title "FFMJ1 (${inpFile})"
+
+set ylabel "meters"
+set yrange [-0.5:0.5]
+
+set ytics nomirror
+set y2range [0:50]
+set y2tics 0,10,20
+
+plot "neu_tmp" u 1:19 t "dH" w l lt 3, \
+     ""        u 1:17 t "dN" w l lt 1, \
+     ""        u 1:18 t "dE" w l lt 2, \
+     ""        u 1:6 t "# sat" axis x1y2 w l lt 4
+
+EOF
+
+rm neu_tmp

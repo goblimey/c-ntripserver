@@ -1,0 +1,6 @@
+EXTRACT_PRIVATE = YES
+RECURSIVE = YES
+GENERATE_LATEX = NO
+
+# silence majority of warnings
+WARN_IF_UNDOCUMENTED = NO

@@ -1,0 +1,62 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>ntrip-logo.png</file>
+    <file>bncflowchart.png</file>
+    <file>bnchelp.html</file>
+    <file>bncabout.html</file>
+    <file>worldmap.dat</file>
+    <file>world.svg</file>
+</qresource>
+<qresource>
+    <file>IMG/BKG_Logo_oS.jpg</file>
+    <file>IMG/screenshot01.png</file>
+    <file>IMG/screenshot02.png</file>
+    <file>IMG/screenshot03.png</file>
+    <file>IMG/screenshot04.png</file>
+    <file>IMG/screenshot05.png</file>
+    <file>IMG/screenshot06.png</file>
+    <file>IMG/screenshot07.png</file>
+    <file>IMG/screenshot08.png</file>
+    <file>IMG/screenshot09.png</file>
+    <file>IMG/screenshot10.png</file>
+    <file>IMG/screenshot11.png</file>
+    <file>IMG/screenshot12.png</file>
+    <file>IMG/screenshot13.png</file>
+    <file>IMG/screenshot14.png</file>
+    <file>IMG/screenshot15.png</file>
+    <file>IMG/screenshot16.png</file>
+    <file>IMG/screenshot17.png</file>
+    <file>IMG/screenshot18.png</file>
+    <file>IMG/screenshot19.png</file>
+    <file>IMG/screenshot20.png</file>
+    <file>IMG/screenshot21.png</file>
+    <file>IMG/screenshot22.png</file>
+    <file>IMG/screenshot23.png</file>
+    <file>IMG/screenshot24.png</file>
+    <file>IMG/screenshot25.png</file>
+    <file>IMG/screenshot26.png</file>
+    <file>IMG/screenshot27.png</file>
+    <file>IMG/screenshot28.png</file>
+    <file>IMG/screenshot29.png</file>
+    <file>IMG/screenshot30.png</file>
+    <file>IMG/screenshot31.png</file>
+    <file>IMG/screenshot32.png</file>
+    <file>IMG/screenshot33.png</file>
+    <file>IMG/screenshot34.png</file>
+    <file>IMG/screenshot35.png</file>
+    <file>IMG/screenshot36.png</file>
+    <file>IMG/screenshot37.png</file>
+    <file>IMG/screenshot38.png</file>
+    <file>IMG/screenshot39.png</file>
+    <file>IMG/screenshot40.png</file>
+    <file>IMG/screenshot41.png</file>
+    <file>IMG/screenshot42.png</file>
+</qresource>
+<qresource>
+    <file>map/map_gm.html</file>
+    <file>map/map_osm.html</file>
+    <file>map/crosshair.png</file>
+    <file>map/reddot.png</file>
+    <file>map/yellowdot.png</file>
+</qresource>
+</RCC>

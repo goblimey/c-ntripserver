@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+
+    <style type="text/css">
+        * { margin: 0; padding: 0; }
+        html { width: 100%; height: 100%; }
+        body { width: 100%; height: 100%; }
+        #map_canvas { width: 100%; height: 100%; background-color: gray; }
+    </style>
+
+    <script>
+      var map;
+      var marker;
+      var zoom;
+      var dotSize;
+      var dotColor;
+      var traceIcon;
+      
+      function initialize(lat, lon, mapWinDotSize, mapWinDotColor) {
+        dotSize = mapWinDotSize;
+	dotColor = mapWinDotColor;
+	if (dotSize > 10) dotSize = 10;
+
+        var myOptions = {
+          center:     new google.maps.LatLng(lat, lon),
+          zoom:       3,
+          mapTypeId:  google.maps.MapTypeId.SATELLITE,
+          panControl: true
+        };
+      
+        map  = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        zoom = 0;       
+
+        var image = new google.maps.MarkerImage("qrc:///map/crosshair.png",
+                                                null, 
+                                                null,
+                                                new google.maps.Point(20, 20),
+                                                new google.maps.Size(40,40)
+                                               );
+
+        if (dotColor == 1) {
+          traceIcon = new google.maps.MarkerImage("qrc:///map/reddot.png",
+                                                null, 
+                                                null,
+                                                new google.maps.Point(dotSize/2, dotSize/2),
+                                                new google.maps.Size(dotSize, dotSize)
+						);
+	}
+  
+
+        if (dotColor == 2) {
+          traceIcon = new google.maps.MarkerImage("qrc:///map/yellowdot.png",
+                                                null, 
+                                                null,
+                                                new google.maps.Point(dotSize/2, dotSize/2),
+                                                new google.maps.Size(dotSize, dotSize)
+						);
+	}
+
+        marker = new google.maps.Marker({
+          map:      map,
+          position: new google.maps.LatLng(lat, lon),
+          icon:     image,
+        });
+      }
+      
+      function gotoLocation(lat, lon) {
+        if (zoom == 0) {
+          zoom = 17;
+          map.setZoom(zoom);
+        }
+        var position = new google.maps.LatLng(lat, lon);
+        map.setCenter(position);
+        marker.setPosition(position);
+
+        if (dotSize > 0) {
+          var trace = new google.maps.Marker({
+            map:      map,
+            position: position,
+            icon:     traceIcon,
+          });
+        }
+      }
+    </script>
+
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?sensor=false">
+    </script>
+
+  </head>
+  <body>
+    <div id="map_canvas">Waiting for data...</div>
+  </body>
+</html>

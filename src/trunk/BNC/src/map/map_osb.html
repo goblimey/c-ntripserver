@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <title>BNC OpenStreetMap View</title>
+    <style type="text/css">
+      html, body, #basicMap {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+      }
+    </style>
+
+    <script src="http://openlayers.org/api/OpenLayers.js" ></script>
+
+    <script>
+      var map;
+      var markers;
+      var marker;
+      var icon;  
+      var traceIcon;
+      var fromProjection;
+      var toProjection;
+      var useTrace;
+      var zoom;
+
+      OpenLayers.Layer.OSM.StreetBrowser = OpenLayers.Class(OpenLayers.Layer.OSM, {
+        /**
+         * Constructor: OpenLayers.Layer.OSM.StreetBrowser
+         *
+         * Parameters:
+         * name - {String}
+         * options - {Object} Hashtable of extra options to tag onto the layer
+         */
+        initialize: function(name, options) {
+          var url = [
+              "http://tiles-base.openstreetbrowser.org/tiles/basemap_base/${z}/${x}/${y}.png"
+          ];
+          options = OpenLayers.Util.extend({
+            numZoomLevels: 18,
+            buffer: 0,
+            transitionEffect: "resize"
+          }, options);
+          var newArguments = [name, url, options];
+          OpenLayers.Layer.XYZ.prototype.initialize.apply(this, newArguments);
+        },
+    
+        CLASS_NAME: "OpenLayers.Layer.OSM.StreetBrowser"
+      });
+
+      function initialize(lat, lon, trace) {
+        useTrace = trace;
+
+        map = new OpenLayers.Map("basicMap",
+                                 {controls:[
+                                  new OpenLayers.Control.Navigation(),
+                                  new OpenLayers.Control.PanZoomBar()]});
+        fromProjection = new OpenLayers.Projection("EPSG:4326");   // WGS 1984
+        toProjection   = new OpenLayers.Projection("EPSG:900913"); // Spherical Mercator
+        zoom           = 0; 
+
+        var mapnik   = new OpenLayers.Layer.OSM.StreetBrowser();
+        var position = new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection);
+ 
+        map.addLayer(mapnik);
+
+        var size    = new OpenLayers.Size(40,40);
+        var offset  = new OpenLayers.Pixel(-size.w/2, -size.h/2);
+        icon        = new OpenLayers.Icon("qrc:///map/crosshair.png", size, offset);
+
+        var sizeT   = new OpenLayers.Size(2,2);
+        var offsetT = new OpenLayers.Pixel(-sizeT.w/2, -13);
+        traceIcon   = new OpenLayers.Icon("qrc:///map/reddot.png", sizeT, offsetT);
+
+        markers = new OpenLayers.Layer.Markers("Markers");
+        marker  = new OpenLayers.Marker(position, icon);
+        markers.addMarker(marker);
+        
+        map.addLayer(markers);
+
+        map.setCenter(position, 3);
+      }
+
+      function gotoLocation(lat, lon) {
+        var position = new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection);
+        if (zoom == 0) {
+          zoom = 15;
+          map.setCenter(position, zoom);
+        }
+        else {
+          map.setCenter(position);
+        }
+        markers.removeMarker(marker);
+        marker = new OpenLayers.Marker(position, icon);
+        markers.addMarker(marker);
+        if (useTrace == 1) {
+          var trace = new OpenLayers.Marker(position, traceIcon.clone());
+          markers.addMarker(trace);
+        }
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+    <div id="basicMap"></div>
+  </body>
+
+</html>

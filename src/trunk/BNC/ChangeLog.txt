@@ -1,0 +1,374 @@
+--------------------------------------------------------------------------------
+ BNC VERSION 2.13.0 (xx.xx.xxxx) current
+--------------------------------------------------------------------------------
+    Changed (19.03.2020): Upgrade to newmat11
+    Added   (23.09.2019): IRNSS support is added wih respect to RTCM formats
+    Added   (13.12.2018): QC multipath analysis for more than two signals
+    Added   (26.10.2017): IRNSS support is added in RINEX QC
+    Added   (12.08.2016): resp. config keywords in context help
+    Added   (08.08.2016): some informations about the data source is added as
+                          comment within the header of RINEX navigation files
+    Added   (21.07.2016): frequency specific signal priorities are added for
+                          RINEX v3 to RINEX v2 conversion
+    Added   (29.06.2016): consideration of provioder ID changes in SSR streams
+                          during PPP analysis
+    Added   (18.05.2016): expected observations in RINEX QC
+    Changed (04.01.2018): Transition from Qt 4.x to Qt5, see #105
+    Changed (04.01.2018): Use c++11, see #105
+    Changed (15.02.2017): SIRGAS2000 transformation parameters adjusted to IGb14
+    Changed (10.04.2017): Transformation parameters for ITRF2005 to GDA94 removed
+    Changed (10.04.2017): Transformation parameters for ITRF2008 to SIRGAS95 removed
+    Changed (10.04.2017): Transformation parameters for ITRF2014 to GDA2020 added
+    Changed (28.07.2016): small adaptations in qwtpolar sources to allow the
+                          successful compilation of BNC on a Raspberry Pi, see
+                          http://software.rtcm-ntrip.org/ticket/88
+    Changed (21.07.2016): Default signal priority list
+    Changed (08.06.2016): weighting factor for GLONASS phase observations
+                          is now enlarged
+    Changed (27.05.2016): RINEX 2.11 ephemeris output for an unknown
+                          transmission time is set to 0.000000000000e+00
+    Changed (23.05.2016): the real satellite visibility is considered now,
+                          if the expected observations are computed in RINEX QC
+    Changed (12.05.2016): limits for spherical harmonics degree and order extended
+    Changed (28.04.2016): ephemeris upload is extended to allow an upload of more
+                          than one stream and to choose a single satellite system
+    Fixed   (12.08.2016): check regarding wrong observation epochs is done during
+                          latency check as well to prevent erroneous latencies
+    Fixed   (08.06.2016): map generation from sourcetable entry
+    Fixed   (02.06.2016): the approach how to wait for clock corrections
+                          in PPP mode, which was well proven in BNC verson 2.11
+                          is re-implemented
+    Fixed   (30.05.2016): some NMEA components in PPP output are fixed:
+                          time stamp is now UTC, hDop value instead pDop value
+    Fixed   (12.05.2016): wrong RINEX v2 header line excluded
+    Fixed   (21.04.2016): RINEX v2 file naming for observation files
+    Fixed   (10.04.2017): minor bugs to prevent some irregular crashes of BNC
+
+--------------------------------------------------------------------------------
+ BNC VERSION 2.12.0 (19.04.2016)
+--------------------------------------------------------------------------------
+    Added: Observation code selection in RINEX file editing
+    Added: Machine-readable output of RINEX QC
+    Added: PPP client functionality for parallel processing of an arbitrary number of stations in separate threads
+    Added: NMEA output for any station processed in PPP mode
+    Added: PPP processing of any number of linear combinations of GNSS measurements selected by user
+    Added: Encoding/Decoding RTCM SSR I messages for Galileo, BDS, SBAS and QZSS
+    Added: Encoding/Decoding RTCM SSR phase bias messages
+    Added: Encoding/Decoding RTCM SSR ionospheric model messages, single-layer model for total electron content
+    Added: RTCM SSR I messages for Galileo, BDS, SBAS and QZSS support from RTNET interface
+    Added: RTCM SSR II messages (phase biases and SSR ionospheric model) support from RTNET interface
+    Added: Computataion of VTEC and STEC from SSR ionospheric model messages for usage in PPP mode
+    Added: Handle old-fashioned SNR values in RINEX
+    Added: Comparison of SP3 files
+    Added: Encoding/Decoding of RTCM v3 proposal for Galileo Broadcast Ephemeris message 1046
+    Added: Encoding/Decoding of RTCM v3 QZSS Broadcast Ephemeris message 1044
+    Added: Encoding/Decoding of RTCM v3 SBAS Broadcast Ephemeris message 1043
+    Added: Encoding/Decoding of RTCM v3 BDS Broadcast Ephemeris message 63
+    Added: RINEX v3 support of Galileo, BDS, SBAS and QZSS Broadcast Ephemerides
+    Added: Consideration of the aspect that Galileo NAV message can be provided for the same epoch but with different flags (I/NAV, F/NAV, DVS)
+    Added: Forwarding NMEA GNGGA to Ntrip Broadcaster
+    Added: Compute IODs for BDS and SBAS from CRC over broadcast ephemeris and clock parameters
+    Added: Example configuration for SP3 file comparison
+    Added: Choose between code and phase observations when in PPP SSR I mode
+    Added: Broadcast ephemeris check regarding allowed age of data sets
+    Added: Code bias usage for PPP SSR I mode
+    Added: Code bias, phase bias and VTEC usage in extended PPP mode
+    Added: Allow GPS-only and GLONASS-only RINEX v2 Navigation files
+    Added: Support Galileo I/NAV broadcast ephemeris
+    Added: Extended RINEX v3 filenames
+    Added: Stream's country added to configuration string 'mountPoints'
+    Added: destinction of GEO/MEO satellites during BDS velocity derermination
+    Added: Set TOE from BDS week and second
+    Added: Use BDS observations and ephemerides in PPP SSR I mode
+    Added: Considering that yaw angle restricted to -180 to +180 deg
+    Added: Update interval for VTEC in RTNET stream format
+    Added: Phase shift records in RINEX v3 headers
+    Added: Output GLONASS slot numbers from scanning stream content
+    Added: Decoder interface for PPP SSR I+II messages for Galileo/QZSS/SBAS/BDS
+    Added: RINEX QC, receiver/antenna information editable
+    Added: Support of new RINEX header lines regarding phase shifts, GLONAQSS slots and GLONASS biases during file merging
+    Added: Switch to port 443 for skeleton file download from https website
+    Added: SINEX Troposphere file output
+    Added: Comments with respect to RINEX v3 to RINEX v2 observation file conversion
+    Added: String for Operating System in logfile output
+    Added: Full integration of 'rtcm3torinex'
+    Added: Extended command line help
+    Changed: RINEX file concatenation
+    Changed: Routine handling of data input and output in RINEX format re-written
+    Changed: QC routines re-written with the goal of handling all signal types
+    Changed: SNR and MP visualization depending on RINEX observation attribute
+    Changed: PPP default options
+    Changed: Consideration of the full antenna PCO vector in all PPP modes
+    Changed: SSR clock correction converted to seconds to be consistent with broadcast values
+    Changed: Read local RINEX skeleton files
+    Changed: Renaming BDS first frequency from '1' to '2'
+    Changed: Default observation types for RINEX v3 files
+    Fixed: Receiver antenna PCO in ionosphere-free PPP mode
+    Fixed: Saastamoinen tropospheric correction for very high elevation receivers
+    Fixed: VRS support in sending NMEA in Auto/Manual mode to Ntrip Broadcaster
+    Fixed: Stream failure/recovery reports
+    Fixed: Reset time series plot when restarting PPP in post processing mode
+    Fixed: Velocity determination for geostationary BDS satellites
+    Fixed: SBAS IODN
+    Fixed: Galileo week number
+    Fixed: RTCM v2 decoder
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.11 (Sept-2014)
+-------------------------------------------------------------------------------
+    Added: Raw stream output through TCP/IP port
+    Changed: SIRGAS transformation parameters adjusted
+    Changed: ANTEX file updated
+    Changed: RTCM SSR messages updated
+    Changed: Maximum number of GNSS observations increased
+    Changed: Loss of lock handling changed
+    Fixed: GLONASS code biases
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.10 (Dec-2013)
+-------------------------------------------------------------------------------
+    Added: Transformation ITRF2008 to NAD83 and DREF91
+    Added: CodeBias added to RTNET stream format
+    Added: Feed engine output sorted per stream
+    Added: Feed engine output filename change on-the-fly
+    Added: 'Append files' option for RINEX observation files
+    Added: RTCM v3 Galileo Broadcast Ephemeris message 1046
+    Added: Reset ambiguities in PPP when orbit/clock correction IDs change
+    Added: Satellite clock offsets are reset in adjustment for combination when orbit/clock correction IDs change
+    Changed: Made C1 in BeiDou default observation type instead of C2
+    Changed: Broadcast Correction ASCII file output for message 1058 &amp; 1064 modified
+    Fixed: Clock RINEX und SP3 file generation on Windows systems
+    Fixed: Broadcast Ephemeris generation
+    Fixed: GPS L2 in 'Feed Engine' output
+    Fixed: GPS L2 phase data in RINEX2
+    Fixed: GLONASS frequency numbers
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.9 (Jul-2013)
+-------------------------------------------------------------------------------
+    Added: Include Galileo in SPP
+    Added: RINEX QC multipath an SNR sky plots for GLONASS and Galileo
+    Added: Bias estimation for GLONASS clocks in PPP
+    Added: Trace positions on GM or OSM maps
+    Changed: Format for feeding a connected GNSS engine
+    Changed: RTNET format for receiving data from a connected GNSS engine
+    Fixed: SSR stream upload buffering disabled
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.8 (Mar-2013)
+-------------------------------------------------------------------------------
+    Added: Concatenate RINEX v3 navigation files containing Galileo ephemeris
+    Added: Correcting clocks for scale factor involved in transformation
+    Changed: Started work on new version in Sep 2012
+    Changed: Plausibility check of GLONASS ephemeris
+    Changed: Orbit/clock interpolation in SSR stream encoding and upload to caster
+    Fixed: Epoch special event flag in RINEX concatenation
+    Fixed: Limit RINEX v2 records length to 80 characters
+    Fixed: SSR message update interval indicator
+    Fixed: Fixed SSR stream encoding and upload
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.7 (Sept-2012)
+-------------------------------------------------------------------------------
+    Added: Clock RINEX file header extended
+    Added: Decoding/converting BeiDou and QZSS added
+    Added: Work on RINEX v2 and v3 quality check started
+    Added: QWT and QWTPOLAR graphics libraries added
+    Added: RINEX QC through multipath analysis sky plot
+    Added: RINEX QC through signal-to-noise ratio sky plot
+    Added: RINEX QC through satellite availability plot
+    Added: RINEX QC through satellite elevation plot
+    Added: RINEX QC through PDOP plot
+    Added: Log observation types contained in RTCM Version 3 MSM streams
+    Added: Reading RINEX v3 observation type header records from RINEX skeleton files
+    Added: Logfile for RINEX file editing and concatenation
+    Added: Save PNG plot files on disk
+    Added: Plot stream distribution map from selected sources
+    Changed: Source code completely re-arranged
+    Changed: Plot stream distribution map from Ntrip Broadcaster source-table
+    Fixed: Bug in L5 decoding fixed
+    Fixed: Bug in on-the-fly configuration fixed
+    Fixed: Short periodic outages in PPP time series when 'Sync Corr' set to zero
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.6 (Apr-2011)
+-------------------------------------------------------------------------------
+    Added: Complete integration of BNS in BNC
+    Added: SP3 and Clock RINEX output
+    Added: PPP in post processing Mode
+    Added: Some RINEX editing & QC functionality
+    Added: Threshold for orbit outliers in combination solution
+    Added: Real-time engine becomes orbit/clock server instead of client
+    Added: Correction for antenna eccentricities
+    Added: Quick start mode for PPP
+    Added: SSL/TLS Support of Ntrip Version 2
+    Added: RINEX editing, concatenation and quality check
+    Added: Reading all configuration options from command line
+    Added: Specific rates for orbits and clocks in streams and SP3/RNX files
+    Changed: 'EOE' added to orbit/clock stream from engine
+    Changed: Design of format for feeding engine changed to follow RINEX v3
+    Changed: Implementation of SSR message encoding modified according to standard
+    Changed: Switch to Qt version 4.7.3
+    Changed: RTCM v3 Galileo Broadcast Ephemeris message 1045
+    Changed: Change default configuration file suffix from 'ini' to 'bnc'
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.5 (Feb-2011)
+-------------------------------------------------------------------------------
+    Added: PPP option for sync of clock observations and corrections
+    Added: Drafted RTCM v3 Galileo ephemeris messages 1045
+    Added: Drafted RTCM v3 Multiple Signal Messages
+    Added: Optional specification of sigmas for coordinates and troposphere in PPP
+    Added: Include Galileo in SPP
+    Added: Include Galileo observations in output via IP port
+    Added: Include Galileo observations in output via RINEX v3 files
+    Added: Correct observations for Antenna Phase Center offsets
+    Added: Combine orbit/clock correction streams
+    Added: Specify corrections mountpoint in PPP panel
+    Changed: Interface format for feeding a real-time engine with observations
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.4 (Dec-2010)
+-------------------------------------------------------------------------------
+    Added: Output of averaged positions when in PPP mode
+    Added: QuickStart PPP option
+    Added: Sigmas for observations and parameters
+    Added: Stream distribution map
+    Changed: Use always the latest received set of Broadcast Ephemeris
+    Changed: Improvement of data sharing efficiency among different threads
+    Changed: Design of PPP panel section
+    Fixed: GPS Ephemeris in RINEX v3 format
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.3 (Aug-2010)
+-------------------------------------------------------------------------------
+    Changed: Internal format for saving raw streams
+    Changed: Format of PPP logs in logfile
+    Fixed: Outlier detection in GLONASS ambiguity resolution
+    Fixed: Complete acceleration terms for GLONASS ephemeris
+    Fixed: Handling ephemeris IOD's in PPP mode
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.2 (Jul-2010)
+-------------------------------------------------------------------------------
+    Fixed: GLONASS ephemeris time
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.1 (Jun-2010)
+-------------------------------------------------------------------------------
+    Added: PPP in post processing mode
+    Changed: Update of SSR messages following draft dated 2010-04-12
+    Changed: Generating error message when observation epoch is wrong
+    Fixed: SSR GLONASS message generation
+
+-------------------------------------------------------------------------------
+ BNC VERSION 2.0 (Feb-2010)
+-------------------------------------------------------------------------------
+    Added: Real-time PPP option
+    Changed: Change sign of Broadcast Corrections
+
+-------------------------------------------------------------------------------
+ BNC VERSION 1.8 (Nov-2009)
+-------------------------------------------------------------------------------
+    Changed: On-the-fly reconfiguration of latency and throughput plots
+
+-------------------------------------------------------------------------------
+ BNC VERSION 1.7 (Nov-2009)
+-------------------------------------------------------------------------------
+    Added: Upgrade to Qt Version 4.5.2
+    Added: Support of Ntrip v2
+    Added: Rover support via serial port
+    Added: Show broadcaster table from www.rtcm-ntrip.org
+    Added: Enable/disable panel widgets
+    Added: User defined configuration filename
+    Added: Daily logfile rotation
+    Added: Read from TCP/IP port, by-pass Ntrip transport protocol
+    Added: Save NMEA sentences coming from rover
+    Added: Auto start
+    Added: Drag and drop ini files
+    Added: Read from serial port, by-pass Ntrip transport protocol
+    Added: Read from UPD port, by-pass Ntrip transport protocol
+    Added: Throughput plot
+    Added: Latency plot
+    Changed: Switch to configuration files in ini-Format
+    Changed: Update of SSR messages following RTCM 091-2009-SC104-542
+    Changed: Output format of Broadcast Corrections
+    Fixed: RINEX Navigation file format
+
+-------------------------------------------------------------------------------
+ BNC VERSION 1.6.1 (Dec-2008)
+-------------------------------------------------------------------------------
+    Changed: HTTP GET when no proxy in front
+
+-------------------------------------------------------------------------------
+ BNC VERSION 1.6 (Dec-2008)
+-------------------------------------------------------------------------------
+    Added: RTCM v3 decoder for orbit and clock corrections
+    Added: Check RTCM v3 streams for incoming message types
+    Added: Decode RTCM v2 message types 3, 20, 21, and 22
+    Added: Loss of lock and lock time indicator
+    Added: Leap second 1 January 2009
+    Added: Offline mode, read data from file
+    Added: Output antenna descriptor, coordinates and eccentricities from RTCM v3
+    Added: Reconfiguration on-the-fly
+    Added: Binary output of unsynchronized observations
+    Changed: Fill blank columns in RINEX v3 with 0.000
+    Changed: Accept GLONASS in RTCM v3 when transmitted first
+    Changed: Binary output of synchronized observations
+    Fixed: Rounding error in RTCM v3 decoder concerning GLONASS height
+    Fixed: Fixed problem with joined RTCM v3 blocks
+
+-------------------------------------------------------------------------------
+ BNC VERSION 1.5 (Apr-2008)
+-------------------------------------------------------------------------------
+    Added: Handle ephemeris from RTCM Version 3 streams
+    Added: Upgrade to Qt Version 4.3.2
+    Added: Optional RINEX v3 output
+    Added: SBAS support
+    Added: Handle ephemeris from RTIGS streams
+    Added: Monitor stream failure/recovery and latency
+    Changed: Redesign of main window
+    Changed: Major revision of input buffer in RTCM v2 decoder
+    Fixed: RINEX skeleton download following stream outage
+    Fixed: Freezing of About window on Mac OS X
+    Fixed: Fixed problem with PRN 32 in RTCM v2 decoder
+    Fixed: Fix for Trimble 4000SSI receivers in RTCM v2 decoder
+
+-------------------------------------------------------------------------------
+ BNC VERSION 1.4 (Jul-2007)
+-------------------------------------------------------------------------------
+    Fixed: Skip messages from proxy server
+    Fixed: Call RINEX script through 'nohup'
+
+-------------------------------------------------------------------------------
+ BNC VERSION 1.3 (May-2007)
+-------------------------------------------------------------------------------
+    Added: Source code published
+
+-------------------------------------------------------------------------------
+ BNC VERSION 1.2b (Apr-2007)
+-------------------------------------------------------------------------------
+    Added: ZERO decoder added
+    Added: HTTP Host directive for skeleton file download
+    Added: Percent encoding for user IDs and passwords
+    Changed: Download public RINEX skeletons once per day
+    Changed: Upgrade to Qt Version 4.2.3
+    Changed: Replace 'system' call for RINEX script by 'QProcess'
+    Fixed: Output only through IP port
+    Fixed: Method 'reconnecting' now thread-save
+    Fixed: Exit execution of calling thread for RTCM3 streams
+    Fixed: Signal-slot mechanism for threads
+
+-------------------------------------------------------------------------------
+ BNC VERSION 1.1b (Jan-2007)
+-------------------------------------------------------------------------------
+    Added: Observables C2, S1, and S2
+    Added: Virtual reference station access
+    Added: Online help through Shift+F1
+    Changed: Small letters for public RINEX skeleton files
+    Fixed: RTCM2 decoder time tag fixed
+
+-------------------------------------------------------------------------------
+ BNC VERSION 1.0b (Dec-2006)
+-------------------------------------------------------------------------------
+    initial version published based on Qt 4.2.3

@@ -1,0 +1,1533 @@
+
+! Server
+! ------
+SERVER 1  "FILE"
+  ## widget = combobox
+  ## cards = FILE BNC:8000 RTES:127.0.0.1 RTES:XXX.XXX.XXX.XXX RTES:host.domain
+  ## default = FILE
+
+! Modulo coeficient
+! -----------------
+MODULOTIME 1  "5"
+  ## widget = lineedit
+  ## default = 0
+
+! Random sleep time
+! -----------------
+RANDOMDELAY 0
+  ## widget = lineedit
+  ## default = 0
+
+! Maximum time difference between observation in one epoch
+! --------------------------------------------------------
+MAXTDIFF 1  "0.2"
+  ## widget = lineedit; default = 0.10
+
+! Maximum time to wait for the complete epoch
+! -------------------------------------------
+MAXTWAIT 1  "5"
+  ## widget = lineedit; activeif = SERVER /= FILE OR RNXNRT == 1
+  ## default = 5
+
+! Maximum processing delay
+! ------------------------
+MAXTDELAY 1  "10"
+  ## widget = lineedit; activeif = SERVER /= FILE
+  ## default = 10
+
+! Size of gap to reset ambiguities
+! --------------------------------
+SET_SLIP_AFTER_GAP 0
+  ## widget = lineedit
+  ## default = 0
+
+! List of RINEX Observation Files
+! -------------------------------
+RNXOBS 63
+  "${P}/VERIPOS_PPPAR/RAW/301B0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/302A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/303A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/304A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/305A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/309A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/310A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/311A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/315A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/363A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/401A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/402A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/404A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/406A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/408A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/409A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/412A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/461A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/501A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/502A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/504A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/505B0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/506A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/507A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/509A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/510B0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/511A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/512A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/601A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/602A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/603A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/604A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/605A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/606A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/607A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/610A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/703A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/704A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/705A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/706A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/708A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/709A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/710A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/714A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/751A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/752A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/777A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/804A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/805B0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/806A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/807A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/809A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/810A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/812A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/813A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/814A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/853A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/901A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/904A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/906A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/907A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/908A0190.12O"
+  "${P}/VERIPOS_PPPAR/RAW/952B0190.12O"
+  ## widget = selwin; path = PTH_RTNET_RAW; ext = EXT_RXO; maxfiles = 999
+  ## activeif = SERVER == FILE
+  # SELECTED
+
+RNXNRT 1  "0"
+  ## widget = checkbox; activeif = SERVER == FILE
+  ## default = 0
+
+! Broadcast orbits
+! ----------------
+RNXNAV 0
+  ## widget = selwin; path = PTH_RTNET_RAW; ext = EXT_RXN; maxfiles = 1
+  ## emptyallowed = true
+
+RNXNAV_CLK_ONLY 0
+  ## widget = checkbox; activeif = PREORB /= _ AND RNXNAV /= _
+
+RNXNAV_BNC 0
+  ## widget = lineedit; activeif = RNXNAV == _
+
+RNXNAVCORR_BNC 0
+  ## widget = lineedit; activeif = RNXNAV == _
+
+PRNEXCLUDED 0
+  ## widget = lineedit
+
+ORB_MAXAGE 0
+  ## widget = lineedit
+  ## default = 4
+
+! Precise orbits
+! --------------
+PREORB 0
+  ## widget = selwin; path = PTH_RTNET_ORB; ext = EXT_PRE; maxfiles = 1
+  ## emptyallowed = true; default = igu${GPSWD}.sp3
+
+SP3_USE_AFTER_BEG 0
+  ## widget = lineedit
+
+SP3_USE_AFTER_END 0
+  ## widget = lineedit
+
+! Stored orbits
+! --------------
+STOREDORB 1  "${P}/VERIPOS_PPPAR/ORB/BLABLA"
+  ## widget = selwin; path = PTH_RTNET_ORB; emptyallowed = true
+  # BLABLA
+
+! External orbits
+! --------------
+EXTORB_HOST 0
+  ## widget = lineedit
+
+EXTORB_PORT 0
+  ## widget = lineedit
+
+EXTORB_WAITTIME 0
+  ## widget = lineedit
+
+EXTORB_SP3 0
+  ## widget = lineedit
+
+! External Satellite Clocks
+! -------------------------
+SATCLOCKFILE 0
+  ## widget = selwin; path = PTH_RTNET_ORB; ext = NO_EXT
+  ## emptyallowed = true
+
+! Satellite Information
+! ---------------------
+SATELL 1  "${P}/VERIPOS_PPPAR/GEN/SATELLIT.V50"
+  ## widget = selwin; path = PTH_RTNET_GEN; ext = NO_EXT; maxfiles = 1
+  ## emptyallowed = true
+  # SATELLIT.V50
+
+! Satellite Problems
+! ------------------
+SATCRUX 0
+  ## widget = selwin; path = PTH_RTNET_ORB; ext = NO_EXT; maxfiles = 1
+  ## emptyallowed = true
+
+! Station Info
+! ------------
+STAINFOFILE 1  "${P}/VERIPOS_PPPAR/STA/APRIORI.CRD"
+  ## widget = selwin; path = PTH_RTNET_STA; ext = EXT_CRD; maxfiles = 1
+  ## emptyallowed = true
+  # APRIORI
+
+PHASEMAP 1  "${P}/VERIPOS_PPPAR/GEN/VERIPOS.ATX"
+  ## widget = selwin; path = PTH_RTNET_GEN; ext = NO_EXT; maxfiles = 1
+  ## emptyallowed = true
+  # VERIPOS.ATX
+
+IGNORE_SAT_ANT_OFFSETS 0
+  ## widget = checkbox
+  ## default = 0
+
+IGNORE_RELATIVISTIC_CORRECTION 0
+  ## widget = checkbox; activeif = PREORB /= _
+  ## default = 0
+
+OCEANLOAD 1  "${P}/VERIPOS_PPPAR/GEN/VERIPOS.BLQ"
+  ## widget = selwin; path = PTH_RTNET_GEN; ext = NO_EXT; maxfiles = 1
+  ## emptyallowed = true
+  # VERIPOS.BLQ
+
+IGNORE_EARTH_TIDES 0
+  ## widget = checkbox
+  ## default = 0
+
+POLE 0
+  ## widget = selwin; path = PTH_RTNET_ORB; ext = NO_EXT; maxfiles = 1
+  ## emptyallowed = true
+
+GPS-UTC 1  "15"
+  ## widget = lineedit; activeif = POLE /= _
+
+DCBFILE_P1P2 0
+  ## widget = selwin; path = PTH_RTNET_ORB; ext = NO_EXT; maxfiles = 1
+  ## emptyallowed = true
+
+DCBFILE_P1C1 0
+  ## widget = selwin; path = PTH_RTNET_ORB; ext = NO_EXT; maxfiles = 1
+  ## emptyallowed = true
+
+RECDCB_INPUT 0
+  ## widget = selwin; path = PTH_RTNET_STA; ext = NO_EXT; maxfiles = 1
+  ## emptyallowed = true
+
+! Ionosphere Model
+! ----------------
+IONOMODEL_NEQUICK 0
+  ## widget = checkbox
+
+IONOMODEL_NEQUICK_FLUX 0
+  ## widget = lineedit; activeif = IONOMODEL_NEQUICK == 1
+
+IONOMODEL_KLOBUCHAR_FILE 0
+  ## widget = selwin; path = PTH_RTNET_ATM; ext = NO_EXT; maxfiles = 1
+  ## emptyallowed = true
+
+IONOMODEL_LIM_FILE 0
+  ## widget = selwin; path = PTH_RTNET_ATM; ext = EXT_LIM; maxfiles = 1
+  ## emptyallowed = true
+
+IONOMODEL_IONEX_FILE 0
+  ## widget = selwin; path = PTH_RTNET_ATM; ext = EXT_INX; maxfiles = 1
+  ## emptyallowed = true
+
+IONOMODEL_DDION_FILE 0
+  ## widget = selwin; path = PTH_RTNET_ATM; ext = EXT_INX; maxfiles = 1
+  ## emptyallowed = true
+
+IONOMODEL_SOCKET_HOST 0
+  ## widget = lineedit
+
+IONOMODEL_SOCKET_PORT 0
+  ## widget = lineedit
+
+IONOMODEL_MAX_INTERP 0
+  ## widget = lineedit
+
+IONOMODEL_MAX_DIFF 0
+  ## widget = lineedit
+
+IONOMODEL_MIN_VALID_GRID 0
+  ## widget = lineedit
+
+IONOMODEL_TOLERANCE_3_POINT_INTERPOLATION 0
+  ## widget = lineedit
+
+IONOMODEL_TOLERANCE_2_POINT_INTERPOLATION 0
+  ## widget = lineedit
+
+IONOMODEL_TOLERANCE_1_POINT_INTERPOLATION 0
+  ## widget = lineedit
+
+IONOMODEL_SOCKET_STOREINFILE 0
+  ## widget = lineedit
+
+! Troposphere input
+! -----------------
+TROPOINPUT_FILE_NAME 0
+  ## widget = selwin; path = PTH_RTNET_ATM; ext = NO_EXT; maxfiles = 1
+  ## emptyallowed = true
+
+TROPOINPUT_SOCKET_HOST 0
+  ## widget = lineedit
+
+TROPOINPUT_SOCKET_PORT 0
+  ## widget = lineedit
+
+TROPOINPUT_MAXAGE 0
+  ## widget = lineedit
+
+! DGPS Input
+! ----------
+DGPS_INPUT_USE_IONO_GRID_STOCH 1  "FIXED"
+  ## widget = combobox; editable = false
+  ## cards = FIXED ALL NONE
+  ## default = FIXED
+
+DGPS_INPUT_IONO_STOCH_MAXDIST 0
+  ## widget = lineedit
+
+DGPS_INPFILE 1  "${P}/VERIPOS_PPPAR/ATM/BLABLA.HRM"
+  ## widget = selwin; path = PTH_RTNET_ATM; ext = EXT_HRM; maxfiles = 1
+  ## emptyallowed = true
+  # BLABLA
+
+DGPS_INPFILE2 0
+  ## widget = selwin; path = PTH_RTNET_ATM; ext = EXT_HRM; maxfiles = 1
+  ## emptyallowed = true
+
+DGPS_INPSOCKET_HOST 0
+  ## widget = lineedit
+
+DGPS_INPSOCKET_PORT 0
+  ## widget = lineedit; activeif = DGPS_INPSOCKET_HOST /= _
+
+DGPS_INPSOCKET_MAXINTERRUPT 0
+  ## widget = lineedit; activeif = DGPS_INPSOCKET_HOST /= _
+
+DGPS_MINSDFIX 0
+  ## widget = lineedit
+
+DGPS_MINSDFIX_AMBRES 0
+  ## widget = lineedit
+
+DGPS_WAITTIME 1  "3.0"
+  ## widget = lineedit
+
+DGPS_MAXAGE 0
+  ## widget = lineedit
+
+! Program Output File
+! -------------------
+SYSOUT 1  "${P}/VERIPOS_PPPAR/OUT/TEST.OUT"
+  ## widget = lineedit; path = PTH_RTNET_OUT; ext = EXT_OUT
+  ## emptyallowed = true
+  ## default = RTNET_RUN
+  # TEST
+
+SYSOUT_SINGLE_FILE 0
+  ## widget = checkbox
+
+TROPO_OUTPUT 0
+  ## widget = lineedit; path = PTH_RTNET_ATM; ext = NO_EXT
+  ## emptyallowed = true
+
+GGK_OUTPUT 0
+  ## widget = lineedit; path = PTH_RTNET_OUT; ext = NO_EXT
+  ## emptyallowed = true
+
+MAXRMS_Q4 0
+  ## widget = lineedit
+
+MAXRMS_Q3 0
+  ## widget = lineedit
+
+MAXRMS_Q2 0
+  ## widget = lineedit
+
+EPOCH_STDOUT 1  "0"
+  ## widget = checkbox
+
+ROLLINGOUT 1  "3600"
+  ## widget = lineedit; activeif = SYSOUT /= _
+
+PRINT_RESID 1  "0"
+  ## widget = checkbox
+  ## default = 0
+
+PRINT_RESID_AR 0
+  ## widget = checkbox
+  ## default = 0
+
+PRINT_OBSINFO 1  "0"
+  ## widget = checkbox
+  ## default = 1
+
+PRINT_LAMBDA 1  "0"
+  ## widget = checkbox
+  ## default = 0
+
+PRINT_MARKEDFLAG 1  "0"
+  ## widget = checkbox
+  ## default = 0
+
+! Rinex Output Path
+! -----------------
+RXO_OUTPUTPATH 0
+  ## widget = lineedit; path = PTH_RTNET_RNX; ext = EXT_RSO
+  ## emptyallowed = true
+
+RXN_OUTPUTPATH 0
+  ## widget = lineedit; path = PTH_RTNET_RNX; ext = EXT_RSN
+  ## emptyallowed = true
+
+RXO_OUTPUT_ROLL 1  "0"
+  ## widget = checkbox; activeif = RXO_OUTPUTPATH /= _
+
+! Precise orbit output
+! --------------------
+PREORB_OUTPUT 0
+  ## widget = lineedit; path = PTH_RTNET_ORB
+  ## emptyallowed = true
+
+PREORB_OUTPUT_ROLLING 0
+  ## widget = lineedit
+
+! Binary Result
+! -------------
+RES_PORT 0
+  ## widget = lineedit
+
+RES_FILE 0
+  ## widget = lineedit
+
+RES_FILE_ASCII 0
+  ## widget = lineedit
+
+RES_RES 1  "0"
+  ## widget = checkbox; activeif = RES_PORT /= _ OR RES_FILE /= _ OR RES_FILE_ASCII /= _
+
+RES_CRD 1  "0"
+  ## widget = checkbox; activeif = RES_PORT /= _ OR RES_FILE /= _ OR RES_FILE_ASCII /= _
+
+RES_TRP 1  "0"
+  ## widget = checkbox; activeif = RES_PORT /= _ OR RES_FILE /= _ OR RES_FILE_ASCII /= _
+
+RES_ELE 1  "0"
+  ## widget = checkbox; activeif = RES_PORT /= _ OR RES_FILE /= _ OR RES_FILE_ASCII /= _
+
+RES_BSL 1  "0"
+  ## widget = checkbox; activeif = RES_PORT /= _ OR RES_FILE /= _ OR RES_FILE_ASCII /= _
+
+RES_ORBABS 1  "1"
+  ## widget = checkbox; activeif = RES_PORT /= _
+
+RES_ORBABS_EPOCHS 1  "120 123 126"
+  ## widget = lineedit; activeif = RES_PORT /= _
+
+RES_ORBABS_APC 1  "1"
+  ## widget = checkbox; activeif = RES_PORT /= _
+
+RES_ORBREL 1  "1"
+  ## widget = checkbox; activeif = RES_PORT /= _
+
+RES_ORB_CLKRED 0
+  ## widget = checkbox; activeif = RES_PORT /= _
+
+RES_FILTER_SOLUTION 0
+  ## widget = checkbox; activeif = RES_PORT /= _ OR RES_FILE /= _ OR RES_FILE_ASCII /= _
+
+SDO_PORT 0
+  ## widget = lineedit
+
+SDO_FILE 0
+  ## widget = lineedit; path = PTH_RTNET_OUT
+  ## emptyallowed = true
+
+MINOBS_BANCROFT 1  "4"
+  ## widget = spinbox; range = 4 10 1
+  ## default = 4
+
+QUICKSTART 0
+  ## widget = lineedit
+  ## default = 0
+
+! List of Processed Stations
+! --------------------------
+STALIST 63
+  "301B" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "302A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "303A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "304A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "305A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "309A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "310A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "311A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "315A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "363A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "401A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "402A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "404A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "406A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "408A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "409A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "412A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "461A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "501A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "502A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "504A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "505B" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "506A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "507A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "509A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "510B" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "511A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "512A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "601A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "602A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "603A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "604A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "605A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "606A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "607A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "610A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "703A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "704A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "705A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "706A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "708A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "709A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "710A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "714A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "751A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "752A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "777A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "804A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "805B" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "806A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "807A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "809A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "810A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "812A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "813A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "814A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "853A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "901A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "904A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "906A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "907A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "908A" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  "952B" "N" "0.0" "0.0" "0.0" "0.0" "0.0" "0.0" "Y" "0.01" "1e-5" "" "" "" ""
+  ## widget = uniline; numlines = 20
+
+! Square-Root Filter
+! ------------------
+USE_SRFILTER 1  "SquareRoot"
+  ## widget = combobox; cards = SquareRoot Kalman Bayes UDU
+  ## default = SquareRoot
+
+! Single-Epoch Solutions
+! ----------------------
+SINGLE_EPOCH 1  "NO"
+  ## widget = combobox; cards = NO YES L1 L3
+  ## default = NO
+
+DECIMATE_FILTER 1  "1"
+  ## widget = spinbox; range = 1 60 1
+  ## default = 1
+
+! Linear Combination
+! -----------------
+USE_CODE_GPS 1  "MW"
+  ## widget = combobox; editable = false
+  ## cards = 0 1 2 IF GF 1&2 MW MW&IF PL
+  ## default = IF
+
+FORCE_P1_GPS 0
+  ## widget = checkbox
+  ## default = 0
+
+USE_PHASE_GPS 1  "IF"
+  ## widget = combobox; editable = false
+  ## cards = 0 1 2 IF GF 1&2 WL
+  ## default = IF
+
+USE_CODE_GLONASS 1  "MW"
+  ## widget = combobox; editable = false
+  ## cards = 0 1 2 IF GF 1&2 MW MW&IF PL
+  ## default = IF
+
+USE_PHASE_GLONASS 1  "IF"
+  ## widget = combobox; editable = false
+  ## cards = 0 1 2 IF GF 1&2 WL
+  ## default = IF
+
+USE_CODE_GALILEO 1  "0"
+  ## widget = combobox; editable = false
+  ## cards = 0 1 2 IF GF 1&2 MW MW&IF
+  ## default = IF
+
+USE_PHASE_GALILEO 1  "0"
+  ## widget = combobox; editable = false
+  ## cards = 0 1 5 IF GF 1&5 WL
+  ## default = IF
+
+! A Priori Sigma
+! --------------
+SIGMA_0_CODE 1  "1.0"
+  ## widget = lineedit; activeif = USE_CODE_GPS /= 0
+  ## default = 3.0
+
+SIGMA_0_PHASE 1  "0.003"
+  ## widget = lineedit; activeif = USE_PHASE_GPS /= 0
+  ## default = 0.02
+
+SIGMA_0_GLONASS_CODE 0
+  ## widget = lineedit; activeif = USE_CODE_GLONASS /= 0
+  ## default = 3.0
+
+SIGMA_0_GLONASS_PHASE 0
+  ## widget = lineedit; activeif = USE_PHASE_GLONASS /= 0
+  ## default = 0.02
+
+SIGMA_0_GALILEO_CODE 0
+  ## widget = lineedit; activeif = USE_CODE_GALILEO /= 0
+  ## default = 3.0
+
+SIGMA_0_GALILEO_PHASE 0
+  ## widget = lineedit; activeif = USE_PHASE_GALILEO /= 0
+  ## default = 0.02
+
+! Elevation-Dependent Weighting
+! -----------------------------
+ELLWGT_CODE 1  "1"
+  ## widget = checkbox; activeif = USE_CODE /= 0
+  ## default = 1
+
+ELLWGT_PHASE 1  "1"
+  ## widget = checkbox; activeif = USE_PHASE /= 0
+  ## default = 1
+
+! Maximal Residuum
+! -----------------
+MAXRES_CODE 1  "10.0"
+  ## widget = lineedit; activeif = USE_CODE_GPS /= 0
+  ## default = 10
+
+MAXRES_PHASE 1  "0.025"
+  ## widget = lineedit; activeif = USE_PHASE_GPS /= 0
+  ## default = 0.15
+
+MAXRES_GLONASS_CODE 0
+  ## widget = lineedit; activeif = USE_CODE_GLONASS /= 0
+  ## default = 10
+
+MAXRES_GLONASS_PHASE 0
+  ## widget = lineedit; activeif = USE_PHASE_GLONASS /= 0
+  ## default = 0.15
+
+MAXRES_GALILEO_CODE 0
+  ## widget = lineedit; activeif = USE_CODE_GALILEO /= 0
+  ## default = 10
+
+MAXRES_GALILEO_PHASE 0
+  ## widget = lineedit; activeif = USE_PHASE_GALILEO /= 0
+  ## default = 0.15
+
+! Model parameters to output each epoch
+! -------------------------------------
+MODEL_OUTPUT 0
+  ## widget = lineedit
+
+! Reject CA observation if L1 missing
+! -----------------------------------
+CAREJECT_L1MISSING 1  "1"
+  ## widget = checkbox
+
+! A Priori Tropospheric Model
+! ---------------------------
+TROPO 1  "UNB3M"
+  ## widget = combobox; editable = false; cards = NONE SAAST MARINI HOPF UNB3M
+  ## default = SAAST
+
+TROPOMFAPRIORI 1  "INTRINSIC"
+  ## widget = combobox; editable = false
+  ## cards = INTRINSIC DRY_NIELL GMF_DRY GMF_WET; activeif = TROPO == SAAST
+  ## default = GMF_DRY
+
+TROPODRY 0
+  ## widget = checkbox; activeif = TROPO /= NONE
+  ## default = 0
+
+! Elevation Mask
+! --------------
+ELEMASK 1  "10"
+  ## widget = spinbox; range = 0 25 1
+  ## default = 15
+
+! Time Window
+! -----------
+TIMWIN 1  "0"
+  ## widget = checkbox
+  ## default = 0
+
+WINSTART 1  "0.0"
+  ## widget = lineedit; activeif = TIMWIN == 1
+
+WINEND 1  "54817.8"
+  ## widget = lineedit; activeif = TIMWIN == 1
+
+RESETAMBINTERVAL 0
+  ## widget = lineedit;
+
+! Ambiguity Resolution
+! --------------------
+AMBRES 1  "1"
+  ## widget = checkbox
+
+AMBRES_MINEPO 1  "60"
+  ## widget = lineedit; default = 10
+
+AMBRES_MINSAT 1  "5"
+  ## widget = lineedit; default = 5
+
+AMBRES_REPEAT 0
+  ## widget = checkbox
+
+AMBRES_FIXWL 1  "CHECK"
+  ## widget = combobox; editable = false
+  ## cards = CHECK YES NO
+
+AMBRES_MINRATIO 1  "1.5"
+  ## widget = lineedit; default = 1.5
+
+AMBRES_MINRATIO_WL 1  "1.5"
+  ## widget = lineedit; activeif = AMBRES_FIXWL /= 0; default = 1.5
+
+AMBRES_MINRATIO_WL_TIN 0
+  ## widget = lineedit; activeif = AMBRES_FIXWL /= 0; default = 1.5
+
+AMBRES_MINRATIO_TIN 0
+  ## widget = lineedit; default = 1.5
+
+AMBRES_MAXSHIFT_CONSIDER 0
+  ## widget = lineedit; default = 0.2
+
+AMBRES_MAXSHIFT_ACCEPT 0
+  ## widget = lineedit; default = 0.1
+
+AMBRES_MAXDX 0
+  ## widget = lineedit; default = 0
+
+AMBRES_MAXCHI 0
+  ## widget = lineedit; default = 0
+
+AMBRES_TRY_TIN 0
+  ## widget = lineedit
+
+AMBRES_DUMP 1  "1"
+  ## widget = checkbox
+
+AMBRES_DUMP_MINELE 1  "30"
+  ## widget = lineedit
+
+AMBRES_DUMP_MINSEC_FIXED 1  "120"
+  ## widget = lineedit
+
+AMBRES_GLONASS 1  "1"
+  ## widget = checkbox; default = 0
+
+! Estimated Parameters
+! --------------------
+TROPOMFESTIM 1  "GMF_WET"
+  ## widget = combobox; editable = false
+  ## cards = COSZ WET_NIELL HOPF GMF_WET
+
+TROPO_UPDATEAPR 1  "0"
+  ## widget = checkbox
+
+TROPO_WHITENOISE 1  "0"
+  ## widget = checkbox
+
+SIG_AMB_0 1  "1e2"
+  ## widget = lineedit
+  ## default = 100
+
+SIG_AMB_P 0
+  ## widget = lineedit
+  ## default = 0
+
+CONSTRAIN_ZD_AMB 1  "1"
+  ## widget = checkbox
+  ## default = 0
+
+CONSTRAIN_ZD_AMB_MINDDFIX 1  "2"
+  ## widget = lineedit
+  ## default = 0
+
+PAR_RECCLK 1  "1"
+  ## widget = checkbox
+  ## default = 1
+
+SIG_RECCLK_0 1  "1e3"
+  ## widget = lineedit; activeif = PAR_RECCLK == 1
+  ## default = 1e4
+
+PAR_SATCLK 1  "0"
+  ## widget = combobox; editable = false; cards = 0 1 S L
+  ## default = 1
+
+REF_SATCLK 1  "1"
+  ## widget = checkbox; activeif = PAR_SATCLK /= 0
+  ## default = 1
+
+SIG_SATCLK_0 1  "1e2"
+  ## widget = lineedit; activeif = PAR_SATCLK /= 0
+  ## default = 1e4
+
+SIG_SATCLK_P 0
+  ## widget = lineedit; activeif = PAR_SATCLK == S
+
+SIG_SATCLKVEL_0 0
+  ## widget = lineedit; activeif = PAR_SATCLK == L
+  ## default = 1e4
+
+SIG_SATCLKVEL_P 0
+  ## widget = lineedit; activeif = PAR_SATCLK == L
+
+PAR_IONO 1  "0"
+  ## widget = combobox; ; editable = false; cards = 0 1 3 6
+  ## default = 0
+
+PAR_IONO_SATSPEC 0
+  ## widget = checkbox; activeif = PAR_IONO /= 0
+  ## default = 0
+
+LIMOUTFILE 0
+  ## widget = lineedit; path = PTH_RTNET_ATM; ext = EXT_LIM
+  ## activeif = PAR_IONO /= 0
+
+LIM_PHI0 0
+  ## widget = lineedit; activeif = PAR_IONO /= 0
+
+LIM_LAM0 0
+  ## widget = lineedit; activeif = PAR_IONO /= 0
+
+PAR_NONEIONO 1  "1"
+  ## widget = radiobutton; group = IONOPARAMETERS
+  ## default = 1
+
+PAR_SIONO 1  "0"
+  ## widget = radiobutton; group = IONOPARAMETERS; radiokeys = SIG_SIONO_0
+
+SIG_SIONO_0 0
+  ## widget = lineedit; activeif = PAR_SIONO == 1
+
+PAR_STAIONO 1  "0"
+  ## widget = radiobutton; group = IONOPARAMETERS
+  ## radiokeys = SIG_STAIONO_0 SIG_STAIONO_P
+
+IONO_SDCONSTRAIN_TYPE 1  "MINSKEL"
+  ## widget = combobox; editable = false; cards = NO MINSKEL TINALL TINSAT
+  ## activeif = PAR_SIONO == 1 OR PAR_STAIONO == 1
+
+IONO_SDCONSTRAIN_SIGMA 1  "0.01"
+  ## widget = lineedit; activeif = PAR_SIONO == 1 OR PAR_STAIONO == 1
+
+SIG_STAIONO_0 0
+  ## widget = lineedit; activeif = PAR_STAIONO == 1
+
+SIG_STAIONO_P 1  "30.0"
+  ## widget = lineedit; activeif = PAR_STAIONO == 1
+
+SOLARFLUX_EST 0
+  ## widget = checkbox; activeif = IONOMODEL_NEQUICK == 1
+
+SOLARFLUX_SIG_0 0
+  ## widget = lineedit; activeif = IONOMODEL_NEQUICK == 1 AND SOLARFLUX_EST == 1
+
+SOLARFLUX_SIG_P 0
+  ## widget = lineedit; activeif = IONOMODEL_NEQUICK == 1 AND SOLARFLUX_EST == 1
+
+KLOBALPHA_EST 0
+  ## widget = checkbox; activeif = IONOMODEL_KLOBUCHAR_FILE /= _
+
+KLOBALPHA_SIG_0 0
+  ## widget = lineedit; activeif = IONOMODEL_KLOBUCHAR_FILE /= _ AND KLOBALPHA_EST == 1
+
+KLOBALPHA_SIG_P 0
+  ## widget = lineedit; activeif = IONOMODEL_KLOBUCHAR_FILE /= _ AND KLOBALPHA_EST == 1
+
+IONOGRID_EST 0
+  ## widget = checkbox
+
+IONOGRID_SATSPEC 0
+  ## widget = checkbox; activeif = IONOGRID_EST /= 0
+
+IONOGRID_SIG_0 0
+  ## widget = lineedit; activeif = IONOGRID_EST /= 0
+
+IONOGRID_SIG_P 0
+  ## widget = lineedit; activeif = IONOGRID_EST /= 0
+
+IONOGRID_DLAT 0
+  ## widget = lineedit; activeif = IONOGRID_EST /= 0
+
+IONOGRID_DLON 0
+  ## widget = lineedit; activeif = IONOGRID_EST /= 0
+
+IONOGRID_CONSTRAIN 0
+  ## widget = lineedit; activeif = IONOGRID_EST /= 0
+
+SIG_TEC0_0 1  "30"
+  ## widget = lineedit; activeif = PAR_IONO >= 1
+
+SIG_TEC0_P 1  "0.1"
+  ## widget = lineedit; activeif = PAR_IONO >= 1
+
+SIG_TECN_0 1  "10"
+  ## widget = lineedit; activeif = PAR_IONO >= 3
+
+SIG_TECN_P 1  "0.01"
+  ## widget = lineedit; activeif = PAR_IONO >= 3
+
+SIG_TECE_0 1  "10"
+  ## widget = lineedit; activeif = PAR_IONO >= 3
+
+SIG_TECE_P 1  "0.01"
+  ## widget = lineedit; activeif = PAR_IONO >= 3
+
+SIG_TECNN_0 0
+  ## widget = lineedit; activeif = PAR_IONO >= 6
+
+SIG_TECNN_P 0
+  ## widget = lineedit; activeif = PAR_IONO >= 6
+
+SIG_TECNE_0 0
+  ## widget = lineedit; activeif = PAR_IONO >= 6
+
+SIG_TECNE_P 0
+  ## widget = lineedit; activeif = PAR_IONO >= 6
+
+SIG_TECEE_0 0
+  ## widget = lineedit; activeif = PAR_IONO >= 6
+
+SIG_TECEE_P 0
+  ## widget = lineedit; activeif = PAR_IONO >= 6
+
+SIG_R_ORBCORR_0 0
+  ## widget = lineedit
+
+SIG_A_ORBCORR_0 0
+  ## widget = lineedit
+
+SIG_C_ORBCORR_0 0
+  ## widget = lineedit
+
+SIG_R_ORBCORR_P 0
+  ## widget = lineedit
+
+SIG_A_ORBCORR_P 0
+  ## widget = lineedit
+
+SIG_C_ORBCORR_P 0
+  ## widget = lineedit
+
+DDIONO_OUTFILE 0
+  ## widget = lineedit; path = PTH_RTNET_ATM
+  ## emptyallowed = true
+
+DDIONO_OUTSOCK_PORT 0
+  ## widget = lineedit
+
+DDIONO_OUTSOCK_COMPRESSED 1  "0"
+  ## widget = checkbox
+
+! Receiver/satellite and LC specific delays
+! -----------------------------------------
+RECDELAYLIST 4
+  "GcMW" "10.0" "Inf"
+  "RcMW" "300.0" "Inf"
+  "GpIF" "1.0" "Inf" ""
+  "GpIF" "1.0" "Inf" ""
+  ## widget = uniline; numlines = 5
+
+SATDELAYLIST 4
+  "GcMW" "1.0" "1e-6" "y"
+  "RcMW" "1.0" "1e-6" "y"
+  "GpIF" "1.0" "1e-6" "y"
+  "RpIF" "1.0" "1e-6" "y"
+  ## widget = uniline; numlines = 5
+
+! Glonass inter-frequency biases
+! -----------------------------------------
+PAR_IFB 0
+  ## widget = checkbox; activeif = AMBRES_GLONASS == 1
+
+SIG_IFB_0 0
+  ## widget = lineedit; activeif = AMBRES_GLONASS == 1
+
+! DGPS/FKP
+! --------
+DGPS_NONDISP 1  "0"
+  ## widget = checkbox
+
+DGPS_NONDISP_SIGMA_0 0
+  ## widget = lineedit; activeif = DGPS_NONDISP == 1
+
+DGPS_NONDISP_SIGMA_P 0
+  ## widget = lineedit; activeif = DGPS_NONDISP == 1
+
+DGPS_DISP 1  "0"
+  ## widget = checkbox
+
+DGPS_DISP_SIGMA_0 0
+  ## widget = lineedit; activeif = DGPS_DISP == 1
+
+DGPS_DISP_SIGMA_P 0
+  ## widget = lineedit; activeif = DGPS_DISP == 1
+
+DGPS_A0 1  "0"
+  ## widget = checkbox
+
+DGPS_A0_LC 1  "0"
+  ## widget = combobox; editable = false; cards = 0 IF
+  ## activeif = DGPS_A0 == 1
+
+DGPS_A0_ADD_CODE_BIAS 1  "600"
+  ## widget = lineedit
+  ## activeif = DGPS_A0 == 1
+
+DGPS_I0 1  "0"
+  ## widget = checkbox
+
+DGPS_DIONO 1  "0"
+  ## widget = checkbox
+
+DGPS_MINOBS 1  "4"
+  ## widget = lineedit
+
+DGPS_MINEPOCHS 1  "10"
+  ## widget = lineedit
+
+RTCM_OUT_PORT 0
+  ## widget = lineedit
+
+DGPS_OUTMODULO 0
+  ## widget = lineedit
+
+DGPS_OUTFILE 0
+  ## widget = lineedit; path = PTH_RTNET_ATM; ext = EXT_HRM
+  ## emptyallowed = true
+
+DGPS_OUTFILE_SP3 0
+  ## widget = lineedit; path = PTH_RTNET_ORB; ext = EXT_PRE
+  ## emptyallowed = true
+
+DGPS_OUTSOCKET_HOST 0
+  ## widget = lineedit
+
+DGPS_OUTSOCKET_PORT 0
+  ## widget = lineedit
+
+GRS_RNXOUTPATH 0
+  ## widget = lineedit
+
+GRS_LIST 0
+  ## widget = uniline; numlines = 5
+
+GRS_OUTSOCKET_PORT 0
+  ## widget = lineedit
+
+GRS_OUTSOCKET_ONDEMAND_PORT 0
+  ## widget = lineedit
+
+GRS_MINSTAFIX 0
+  ## widget = lineedit
+
+! Precise Orbit Determination
+! ---------------------------
+ESTIMATE_ORBITS 0
+  ## widget = checkbox
+
+POD_PRNS 0
+  ## widget = lineedit
+
+POD_GRAVITY_FILE 0
+  ## widget = selwin; maxfiles = 1; emptyallowed = true
+
+POD_GRAV_M_MAX 0
+  ## widget = lineedit
+
+POD_GRAV_N_MAX 0
+  ## widget = lineedit
+
+POD_SIG_POS 0
+  ## widget = lineedit
+
+POD_NOISE_POS 0
+  ## widget = lineedit
+
+POD_SIG_VEL 0
+  ## widget = lineedit
+
+POD_NOISE_VEL 0
+  ## widget = lineedit
+
+POD_EST_DRAG 0
+  ## widget = checkbox
+
+POD_APR_DRAG 0
+  ## widget = lineedit
+
+POD_SIG_DRAG 0
+  ## widget = lineedit; activeif = POD_EST_DRAG == 1
+
+POD_NOISE_DRAG 0
+  ## widget = lineedit; activeif = POD_EST_DRAG == 1
+
+POD_EST_RAD 0
+  ## widget = checkbox
+
+POD_APR_RAD 0
+  ## widget = lineedit
+
+POD_SIG_RAD 0
+  ## widget = lineedit; activeif = POD_EST_RAD == 1
+
+POD_NOISE_RAD 0
+  ## widget = lineedit; activeif = POD_EST_RAD == 1
+
+POD_POS_CONSTR 0
+  ## widget = lineedit
+
+POD_VEL_CONSTR 0
+  ## widget = lineedit
+
+! Menu-Keywords
+! -------------
+ROOT_DIR 1  "${P}"
+  ## widget = selwin; seldir = true; default = ${P}
+  # ${P}
+
+CAMPAIGN 1  "VERIPOS_PPPAR"
+  ## widget = selwin; selsubdir = true; path = ROOT_DIR;
+  # VERIPOS_PPPAR
+
+PTH_RTNET_ATM 1  "${P}/VERIPOS_PPPAR/ATM"
+  ## widget = selwin; seldir = true; default = ${ROOT_DIR}/${CAMPAIGN}/ATM
+  # ATM
+
+PTH_RTNET_GEN 1  "${P}/VERIPOS_PPPAR/GEN"
+  ## widget = selwin; seldir = true; default = ${ROOT_DIR}/${CAMPAIGN}/GEN
+  # GEN
+
+PTH_RTNET_ORB 1  "${P}/VERIPOS_PPPAR/ORB"
+  ## widget = selwin; seldir = true; default = ${ROOT_DIR}/${CAMPAIGN}/ORB
+  # ORB
+
+PTH_RTNET_ORB_global 1  "${P}/VERIPOS_PPPAR/ORB_NAPEOS"
+  ## widget = selwin; seldir = true; default = ${ROOT_DIR}/${CAMPAIGN}/ORB
+  # ORB_NAPEOS
+
+PTH_RTNET_OUT 1  "${P}/VERIPOS_PPPAR/OUT"
+  ## widget = selwin; seldir = true; default = ${ROOT_DIR}/${CAMPAIGN}/OUT
+  # OUT
+
+PTH_RTNET_RAW 1  "${P}/VERIPOS_PPPAR/RAW"
+  ## widget = selwin; seldir = true; default = ${ROOT_DIR}/${CAMPAIGN}/RAW
+  # RAW
+
+PTH_RTNET_STA 1  "${P}/VERIPOS_PPPAR/STA"
+  ## widget = selwin; seldir = true; default = ${ROOT_DIR}/${CAMPAIGN}/STA
+  # STA
+
+PTH_RTNET_RNX 1  "${P}/VERIPOS_PPPAR/RNX"
+  ## widget = selwin; seldir = true; default = ${ROOT_DIR}/${CAMPAIGN}/RNX
+  # RNX
+
+EXT_CRD 1  "CRD"
+  ## widget = lineedit; default = CRD
+
+EXT_HRM 1  "HRM"
+  ## widget = lineedit; default = HRM
+
+EXT_INX 1  "INX"
+  ## widget = lineedit; default = INX
+
+EXT_LIM 1  "LIM"
+  ## widget = lineedit; default = LIM
+
+EXT_OUT 1  "OUT"
+  ## widget = lineedit; default = OUT
+
+EXT_PRE 1  "PRE"
+  ## widget = lineedit; default = SP3
+
+EXT_RXN 1  "??N"
+  ## widget = lineedit; default = ??N
+
+EXT_RXO 1  "??O"
+  ## widget = lineedit; default = ??O
+
+EXT_RSN 1  "RXN"
+  ## widget = lineedit; default = RXN
+
+EXT_RSO 1  "RXO"
+  ## widget = lineedit; default = RXO
+
+! END OF INPUT
+
+! include intro_RTNET_INP.xml
+
+# BEGIN_PANEL NO_CONDITION #####################################################
+# Configurations                                                               #
+#     Campaign Root Dir     > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% <    # ROOT_DIR
+#     Active Campaign       > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% <    # CAMPAIGN
+#                                                                              #
+# Paths to Files:                                                              #
+#   Atmospheric       (ATM) > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% < # PTH_RTNET_ATM
+#   General           (GEN) > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% < # PTH_RTNET_GEN
+#   My Orbits         (ORB) > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% < # PTH_RTNET_ORB
+#   System Orbits     (ORB) > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% < # PTH_RTNET_ORB_global
+#   Output            (OUT) > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% < # PTH_RTNET_OUT
+#   Raw GNSS Data     (RAW) > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% < # PTH_RTNET_RAW
+#   RINEX Output      (RNX) > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% < # PTH_RTNET_RNX
+#   Station Info      (STA) > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% < # PTH_RTNET_STA
+#                                                                              #
+# File Extensions:                                                             #
+#   Coordinates       (CRD) > %%% <             Output           (OUT) > %%% < # EXT_CRD EXT_OUT
+#   High Res Model    (HRM) > %%% <             Precise Orbits   (SP3) > %%% < # EXT_HRM EXT_PRE
+#   Global Iono Model (INX) > %%% <             Local Iono Model (LIM) > %%% < # EXT_INX EXT_LIM
+#   RINEX Obs Input   (??O) > %%% <             RINEX Obs Output (RXO) > %%% < # EXT_RXO EXT_RSO
+#   RINEX Nav Input   (??N) > %%% <             RINEX Nav Output (RXN) > %%% < # EXT_RXN EXT_RSN
+# END_PANEL ####################################################################
+
+! include panel_Configurations_RTNET_INP.xml
+
+# BEGIN_PANEL NO_CONDITION #####################################################
+#  Input Devices (Part 1)                                                      #
+#                                                                              #
+#  Server:        > %%%%%%%%%%%%%%%% <                                         # SERVER
+#  RINEX File(s): > %%%%%%%%%%%%%%%%%%%%%%%%%%% <         NRT > % <            # RNXOBS RNXNRT
+#                                                                              #
+#  Time tolerance for epoch identification:               > %%%%% <  (seconds) # MAXTDIFF
+#  Maximum time to wait for the complete epoch:           > %%%%% <  (seconds) # MAXTWAIT
+#  Maximum processing delay:                              > %%%%% <  (seconds) # MAXTDELAY
+#  Sampling:                                              > %%%%% <  (seconds) # MODULOTIME
+#  Sleep time before processing (randomized):             > %%%%% <  (seconds) # RANDOMDELAY
+#  Reset ambiguities after gap (0 - default value)        > %%%%% <  (epochs)  # SET_SLIP_AFTER_GAP
+#  Reject CA if L1 missing                                > % <                # CAREJECT_L1MISSING
+#                                                                              #
+#  Orbits:                                                                     #
+#         RINEX Navigation File > %%%%%%%%%%%%%%%%%%%%% <  clk only > % <      # RNXNAV RNXNAV_CLK_ONLY
+#            Ephemeris BNC:     > %%%%%%%%%%%%%%%%%%%%% < (host:port)          # RNXNAV_BNC
+#            Corrections BNC:   > %%%%%%%%%%%%%%%%%%%%% < (host:port)          # RNXNAVCORR_BNC
+#            Orbit max. age (hour)          > %%% <                            # ORB_MAXAGE
+#         Precise Orbits File   > %%%%%%%%%%%%%%%%%%%%% <     use > %% <-> %% <# PREORB  SP3_USE_AFTER_BEG SP3_USE_AFTER_END
+#            Ignore Relativistic Correction > % <                              # IGNORE_RELATIVISTIC_CORRECTION
+#         Stored Orbits File    > %%%%%%%%%%%%%%%%%%%%% <                      # STOREDORB
+#         External orbits (sock)> %%%%%%%%%%%%% < host      > %%%% < port      # EXTORB_HOST EXTORB_PORT
+#                               > %%% < wait (seconds)                         # EXTORB_WAITTIME
+#         External orbits (SP3) > %%%%%%%%%%%%%%%%%%%%% <                      # EXTORB_SP3
+#         External Sat. Clocks. > %%%%%%%%%%%%%%%%%%%%% <                      # SATCLOCKFILE
+#         Satellite Info        > %%%%%%%%%%%%%%%%%%%%% <                      # SATELL
+#         Satellite Problems    > %%%%%%%%%%%%%%%%%%%%% <                      # SATCRUX
+#         PRN Exclude:          > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% < # PRNEXCLUDED
+#                                                                              #
+#  Coordinates and Info:                > %%%%%%%%%%%%%%%%%%%%% <              # STAINFOFILE
+#  Phase Center Map                     > %%%%%%%%%%%%%%%%%%%%% <              # PHASEMAP
+#    Ignore Satellite Antenna Offsets   > % <                                  # IGNORE_SAT_ANT_OFFSETS
+#  Ocean Loading                        > %%%%%%%%%%%%%%%%%%%%% <              # OCEANLOAD
+#  Ignore Earth Tides                   > % <                                  # IGNORE_EARTH_TIDES
+#  Pole File (IERS or Bernese Format)   > %%%%%%%%%%%%%%%%%%%%% <              # POLE
+#    GPS-UTC if Missing in Pole File    > %%%% <                               # GPS-UTC   
+#  Satellite DCBs P1-P2 (IONEX or *.DCB)> %%%%%%%%%%%%%%%%%%%%% <              # DCBFILE_P1P2
+#  Satellite DCBs P1-C1 (IONEX or *.DCB)> %%%%%%%%%%%%%%%%%%%%% <              # DCBFILE_P1C1
+#  Receiver DCBs                        > %%%%%%%%%%%%%%%%%%%%% <              # RECDCB_INPUT
+#                                                                              # 
+# END_PANEL ####################################################################
+
+! include panel_Input_Devices_Part_1_RTNET_INP.xml
+
+# BEGIN_PANEL NO_CONDITION #####################################################
+#  Input Devices (Part 2)                                                      #
+#                                                                              #
+#  Ionospheric Model:                                                          #
+#      NeQuick Model    > % <                     Solar Flux > %%%%% <         # IONOMODEL_NEQUICK IONOMODEL_NEQUICK_FLUX
+#      Klobuchar Model  > %%%%%%%%%%%%%%%%%%%%% <                              # IONOMODEL_KLOBUCHAR_FILE
+#      Local Model      > %%%%%%%%%%%%%%%%%%%%% <                              # IONOMODEL_LIM_FILE
+#      Global Ionospheric Model                                                #
+#                IONEX: > %%%%%%%%%%%%%%%%%%%%% <                              # IONOMODEL_IONEX_FILE
+#                 Host: > %%%%%%%%%%%%%%%%%%%%% < Port: > %%%%%% <             # IONOMODEL_SOCKET_HOST IONOMODEL_SOCKET_PORT
+#                  Log: > %%%%%%%%%%%%%%%%%%%%% <  max.intp > %% < (real-time) # IONOMODEL_SOCKET_STOREINFILE IONOMODEL_MAX_INTERP
+#                                                  max.diff > %% < (real-time) # IONOMODEL_MAX_DIFF
+#      DDIon Model                                                             #
+#                File:  > %%%%%%%%%%%%%%%%%%%%% <                              # IONOMODEL_DDION_FILE 
+#                                                                              #
+#  Minimum number of valid INX grid points > %% <                              # IONOMODEL_MIN_VALID_GRID
+#  Tolerance for interpolation: 3 pnt> %%%%%% < 2 pnt> %%%%% < 1 pnt> %%%%% <  # IONOMODEL_TOLERANCE_3_POINT_INTERPOLATION IONOMODEL_TOLERANCE_2_POINT_INTERPOLATION IONOMODEL_TOLERANCE_1_POINT_INTERPOLATION
+#                                                                              #
+#  Troposphere:                                                                #
+#          File: > %%%%%%%%%%%%%%%%%%%%%%%%%%%% <                              # TROPOINPUT_FILE_NAME
+#          Host: > %%%%%%%%%%%%%%%%%%%%%%%%%%%% < Port: > %%%%%% <             # TROPOINPUT_SOCKET_HOST TROPOINPUT_SOCKET_PORT
+#    Maximum Trop Age: > %%% < seconds                                         # TROPOINPUT_MAXAGE
+#                                                                              #
+#  DGPS Input:   use Grid/Stoch > %%%%% <  max dist for stoch > %%%% < km      # DGPS_INPUT_USE_IONO_GRID_STOCH DGPS_INPUT_IONO_STOCH_MAXDIST
+#    File1: > %%%%%%%%%%%%%%%%% <                                              # DGPS_INPFILE       
+#    File2: > %%%%%%%%%%%%%%%%% <                                              # DGPS_INPFILE2
+#    Socket:  Host: > %%%%%%%%%%%%%%%%% <                                      # DGPS_INPSOCKET_HOST
+#             Port: > %%%%% <               Reset after interrupt: > %% < sec  # DGPS_INPSOCKET_PORT DGPS_INPSOCKET_MAXINTERRUPT
+#      Min fix. SD amb   > %%%% <    used for Amb. Resolution > %%%% <         # DGPS_MINSDFIX DGPS_MINSDFIX_AMBRES
+#      Max sync. time    > %%%% <                                              # DGPS_WAITTIME
+#      Max corr. age     > %%%% <                                              # DGPS_MAXAGE  
+# END_PANEL ####################################################################
+
+! include panel_Input_Devices_Part_2_RTNET_INP.xml
+
+# BEGIN_PANEL NO_CONDITION #####################################################
+#  Output Devices                                                              #
+#                                                                              #
+#  General Output:      > %%%%%%%%%%%%%%%%%%%%% <  Roll. interval    > %%%%%% <# SYSOUT           ROLLINGOUT
+#      Print Residuals  > %%%% <                   Print Resid. (AR) > %%%% <  # PRINT_RESID      PRINT_RESID_AR
+#      Print Obs. Info   > % <                     Print LAMBDA      > % <     # PRINT_OBSINFO    PRINT_LAMBDA
+#      Print mark flags  > % <                                                 # PRINT_MARKEDFLAG
+#      Single File      > % <                                                  # SYSOUT_SINGLE_FILE
+#                                                                              #
+#  GGK Output:          > %%%%%%%%%%%%%%%%%%%%% <  STDOUT Info > % <           # GGK_OUTPUT EPOCH_STDOUT
+#      Max RMS Q4:      > %%%%%% <                                             # MAXRMS_Q4
+#      Max RMS Q3:      > %%%%%% <                                             # MAXRMS_Q3
+#      Max RMS Q2:      > %%%%%% <                                             # MAXRMS_Q2
+#                                                                              #
+#  Tropo Output:        > %%%%%%%%%%%%%%%%%%%%%%%% <                           # TROPO_OUTPUT
+#                                                                              #
+#  RXO Output Path/Name > %%%%%%%%%%%%%%%%%%%%%%%% <     Rolling     > % <     # RXO_OUTPUTPATH RXO_OUTPUT_ROLL
+#  RXN Output Path/Name > %%%%%%%%%%%%%%%%%%%%%%%% <                           # RXN_OUTPUTPATH
+#                                                                              #
+#  Precise Orbit Output > %%%%%%%%%%%%%%%%%%%%%%%% <     Rolling [s] > %%%%%% <# PREORB_OUTPUT PREORB_OUTPUT_ROLLING
+#                                                                              #
+#  Results:  Port > %%%%%% <  or binary File > %%%%%%%%%%%%%%%%%%%%%%%%% <     # RES_PORT RES_FILE        
+#                             or  ASCII File > %%%%%%%%%%%%%%%%%%%%%%%%% <     # RES_FILE_ASCII
+#    Residuals:       > % <                                                    # RES_RES
+#    CRD:             > % <                                                    # RES_CRD
+#    Tropo:           > % <                                                    # RES_TRP
+#    Elevation:       > % <                                                    # RES_ELE
+#    Bsl Info:        > % <                                                    # RES_BSL
+#    Absolute Orbits: > % <  at times  + 0 s, > %%%%%%%%%%%%%%% < s  APC > % < # RES_ORBABS RES_ORBABS_EPOCHS RES_ORBABS_APC
+#    Orbit Corr       > % <  (wrt broadcast)                                   # RES_ORBREL
+#                     > % < clock reduction                                    # RES_ORB_CLKRED
+#    Filter solution  > % <                                                    # RES_FILTER_SOLUTION
+#                                                                              #
+#  Status Display Output:                                                      #  
+#                port > %%%%%% <    file > %%%%%%%%%%%% <                      # SDO_PORT SDO_FILE
+# END_PANEL ####################################################################
+
+! include panel_Output_Devices_RTNET_INP.xml
+
+# BEGIN_PANEL NO_CONDITION #####################################################
+#  Processing Options                                                          #
+#                                                                              #
+#  Use Square-Root Filter       > %%%%%%%%%% <                                 # USE_SRFILTER
+#  Compute Epoch Solutions      > %%%%% <                                      # SINGLE_EPOCH
+#  Decimate Filter Solution by  > %%%%% <                                      # DECIMATE_FILTER
+#                                                                              #
+#                                                                              #
+#  Used                           LC         Sigma      Max.Res                #                         
+#  observations: GPS code:      > %%%%% <  > %%%%% <  > %%%%% <                # USE_CODE_GPS      SIGMA_0_CODE          MAXRES_CODE      
+#                GPS phase:     > %%%%% <  > %%%%% <  > %%%%% <                # USE_PHASE_GPS     SIGMA_0_PHASE	 MAXRES_PHASE     
+#                Glonass code:  > %%%%% <  > %%%%% <  > %%%%% <                # USE_CODE_GLONASS  SIGMA_0_GLONASS_CODE	 MAXRES_GLONASS_CODE  
+#                Glonass phase: > %%%%% <  > %%%%% <  > %%%%% <                # USE_PHASE_GLONASS SIGMA_0_GLONASS_PHASE MAXRES_GLONASS_PHASE 
+#                Galileo code:  > %%%%% <  > %%%%% <  > %%%%% <                # USE_CODE_GALILEO  SIGMA_0_GALILEO_CODE	 MAXRES_GALILEO_CODE  
+#                Galileo phase: > %%%%% <  > %%%%% <  > %%%%% <                # USE_PHASE_GALILEO SIGMA_0_GALILEO_PHASE MAXRES_GALILEO_PHASE 
+#                                                                              #
+#                Elevation-Dependent Weighting: code  > % <                    # ELLWGT_CODE
+#                                               phase > % <                    # ELLWGT_PHASE 
+#                Force P1 (GPS): > % <                                         # FORCE_P1_GPS 
+#                                                                              #
+#  Model Output > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% < # MODEL_OUTPUT
+#                                                                              #
+#  Tropospheric Model > %%%%%%% <  Mapping > %%%%%%%%%% <  Dry Part Only > % < # TROPO TROPOMFAPRIORI TROPODRY
+#                                                                              #
+#  Elevation Mask  > %%%% < (degrees)                                          # ELEMASK
+#  Time Window     > % <    Start > %%%%%%%%%%% <   End > %%%%%%%%%%% <  (MJD) # TIMWIN WINSTART WINEND
+# END_PANEL ####################################################################
+
+! include panel_Processing_Options_RTNET_INP.xml
+
+# BEGIN_PANEL NO_CONDITION ##########################################################################
+#  Processed Stations                                                                               #
+#                                                                                                   #
+#  Minimal Number of Observations for Bancroft Algorithm > % <                                      # MINOBS_BANCROFT
+#                                                                                                   #
+#  Tropsphere: Mapping           > %%%%%%%%% <                                                      # TROPOMFESTIM
+#              Update A Priori   > % <                                                              # TROPO_UPDATEAPR
+#              White Noise       > % <                                                              # TROPO_WHITENOISE
+#                                                                                                   #
+#  Quick Start (seconds)         > %%% <                                                            # QUICKSTART
+#                                                                                                   #
+#> Name Type sig0_n sig0_e sig0_u sigP_n sigP_e sigP_u tropo sig0_t sigP_t grad sig0_g sigP_g IFB < # STALIST
+#                                                                                                   #
+# END_PANEL #########################################################################################
+
+! include panel_Processed_Stations_RTNET_INP.xml
+
+# BEGIN_PANEL NO_CONDITION #####################################################
+# Estimated Parameters 1                                                       #
+#  Ambiguities:     resolve  > % <                  > %%%%% <   > %%%%%% < cyc # AMBRES SIG_AMB_0 SIG_AMB_P
+#              Constrain ZD  > % <    Min. fixed DD > %% <                     # CONSTRAIN_ZD_AMB CONSTRAIN_ZD_AMB_MINDDFIX
+#             Reset Inteval  > %%%% < (Testing)                                # RESETAMBINTERVAL
+#                                                                              #
+#  Rec. Clk > % <                                   > %%%%% <                  # PAR_RECCLK SIG_RECCLK_0 
+#  Sat. Clk > %%%% < ref.> % <                      > %%%%% <   > %%%%%% <     # PAR_SATCLK REF_SATCLK SIG_SATCLK_0 SIG_SATCLK_P
+#                                   Sat. Clk. Drift > %%%%% <   > %%%%%% <     # SIG_SATCLKVEL_0 SIG_SATCLKVEL_P
+#                                                                              #
+#  Precise Orbit Determination > % <                                           # ESTIMATE_ORBITS
+#                                                                              #
+#  Orbit corrections:                                                          #
+#                         Radial                 > %%%%%%%%% <   > %%%%%% <    # SIG_R_ORBCORR_0 SIG_R_ORBCORR_P  
+#                         Along track            > %%%%%%%%% <   > %%%%%% <    # SIG_A_ORBCORR_0 SIG_A_ORBCORR_P
+#                         Cross track            > %%%%%%%%% <   > %%%%%% <    # SIG_C_ORBCORR_0 SIG_C_ORBCORR_P
+#                                                                              #
+#      Receiver delays                              Satellite delays           #
+#  > LC  sig_0  sig_P  C<                        > LC  sig_0  sig_P  C<        # RECDELAYLIST SATDELAYLIST                       
+#                                                                              #
+#  Inter-frequency biases (Glonass)                                            #
+#     estimate inter-frequncy biases     > % <       constrain (m)   > %%%% <  # PAR_IFB SIG_IFB_0
+# END_PANEL ####################################################################
+
+! include panel_Estimated_Parameters_1_RTNET_INP.xml
+
+# BEGIN_PANEL NO_CONDITION #####################################################
+# Estimated Parameters 2                                                       #
+#                                                      A Priori Sigmas         #
+#                                                   initial     prediction     #
+#  Ionosphere Parameters: None            > % <                                # PAR_NONEIONO
+#                         Stochastics     > % <  > %%%%%%%%% <               m # PAR_SIONO   SIG_SIONO_0   
+#                         Static          > % <  > %%%%%%%%% <   > %%%%%% <  m # PAR_STAIONO SIG_STAIONO_0 SIG_STAIONO_P
+#                         SD constrain           > %%%%%%%%% <   > %%%%%% <  m # IONO_SDCONSTRAIN_TYPE IONO_SDCONSTRAIN_SIGMA
+#                                                                              #
+#                         Klobuchar Ampl. > % <  > %%%%%%%%% <   > %%%%%% <    # KLOBALPHA_EST KLOBALPHA_SIG_0 KLOBALPHA_SIG_P
+#                         Solar Flux      > % <  > %%%%%%%%% <   > %%%%%% <    # SOLARFLUX_EST SOLARFLUX_SIG_0 SOLARFLUX_SIG_P
+#                                                                              #
+#  Grid Model: > % <      sat. specific   > % <  > %%%%%%%%% <   > %%%%%% <    # IONOGRID_EST IONOGRID_SATSPEC IONOGRID_SIG_0 IONOGRID_SIG_P
+#                         dPhi (deg)   > %%%% <                                # IONOGRID_DLAT
+#                         dLam (deg)   > %%%% <                                # IONOGRID_DLON
+#                         constrain    > %%%% <                                # IONOGRID_CONSTRAIN
+#                                                                              #
+#  Deterministic Ion. Model  > %% <  parameter(s)                              # PAR_IONO
+#               sat. spec.   > % <                                             # PAR_IONO_SATSPEC
+#               phi_0        > %%%%% <                                         # LIM_PHI0 
+#               lam_0        > %%%%%% <                                        # LIM_LAM0
+#               output file  > %%%%%%%%%%%%%%% <                               # LIMOUTFILE
+#    constant term                               > %%%%%%%%% <   > %%%%%% <    # SIG_TEC0_0 SIG_TEC0_P
+#    latitude-dependent term                     > %%%%%%%%% <   > %%%%%% <    # SIG_TECN_0 SIG_TECN_P
+#    longitude-dependent term                    > %%%%%%%%% <   > %%%%%% <    # SIG_TECE_0 SIG_TECE_P
+#    latitude-dependent quadratic term           > %%%%%%%%% <   > %%%%%% <    # SIG_TECNN_0 SIG_TECNN_P
+#    mixed quadratic term                        > %%%%%%%%% <   > %%%%%% <    # SIG_TECNE_0 SIG_TECNE_P
+#    longitude-dependent quadratic term          > %%%%%%%%% <   > %%%%%% <    # SIG_TECEE_0 SIG_TECEE_P
+#                                                                              #
+#  DD Iono output:                                                             #
+#    File: > %%%%%%%%%%%%%%%%%%%% <                                            # DDIONO_OUTFILE
+#    Port: > %%%%%% <  Compressed: > % <                                       # DDIONO_OUTSOCK_PORT DDIONO_OUTSOCK_COMPRESSED
+#                                                                              #
+# END_PANEL ####################################################################
+
+! include panel_Estimated_Parameters_2_RTNET_INP.xml
+
+# BEGIN_PANEL AMBRES == 1 ######################################################
+#  Ambiguity Resolution                                                        #
+#                                                                              #
+#  Minimum number of:        epochs      > %%%% <    ambiguities     > %%%% <  # AMBRES_MINEPO AMBRES_MINSAT
+#  Repeat reduced sets                   > % <       Fix wide-lane   > %%%% <  # AMBRES_REPEAT AMBRES_FIXWL
+#  Minimal Ratios:           narrow-lane > %%%% <    wide-lane       > %%%% <  # AMBRES_MINRATIO AMBRES_MINRATIO_WL
+#  Maximal Shift:            consider    > %%%% <    accept          > %%%% <  # AMBRES_MAXSHIFT_CONSIDER AMBRES_MAXSHIFT_ACCEPT
+#  Max Diff. wrt A Priori Coordinates    > %%%% <    Max Chi-Test    > %%%% <  # AMBRES_MAXDX AMBRES_MAXCHI
+#                                                                              #
+#  Try TIN Baselines up to (km)          > %%% <                               # AMBRES_TRY_TIN
+#    TIN Minimal Ratio:      narrow-lane > %%%% <    wide-lane       > %%%% <  # AMBRES_MINRATIO_TIN AMBRES_MINRATIO_WL_TIN
+#                                                                              #
+#  Dump                                  > % <                                 # AMBRES_DUMP
+#     Minimal elevation                  > %%%% <    Min. fix period > %%%% <  # AMBRES_DUMP_MINELE AMBRES_DUMP_MINSEC_FIXED
+#                                                                              #
+#  Resolve Glonass Ambiguities           > % <                                 # AMBRES_GLONASS
+# END_PANEL ####################################################################
+
+! include panel_Ambiguity_Resolution_RTNET_INP.xml
+
+# BEGIN_PANEL NO_CONDITION #####################################################
+# DGPS/FKP/GRS Info                                                            #
+#                                        A Priori Sigmas                       # 
+#                                     initial   prediction                     # 
+# FKP corrections           > % <    > %%%%% <   > %%%%% <                     # DGPS_NONDISP DGPS_NONDISP_SIGMA_0 DGPS_NONDISP_SIGMA_P
+# FKP disp.corrections      > % <    > %%%%% <   > %%%%% <                     # DGPS_DISP    DGPS_DISP_SIGMA_0    DGPS_DISP_SIGMA_P
+#                                                                              #
+# abs term:   use sat. clk. > % < LC > %% <  add code bias after > %%%%% < sec # DGPS_A0 DGPS_A0_LC DGPS_A0_ADD_CODE_BIAS
+# disp. term: use ion. par. > % <                                              # DGPS_I0
+#                                                                              #
+# diono                     > % <                                              # DGPS_DIONO
+#                                                                              #
+# Min. Number of Obs.       > %% <                                             # DGPS_MINOBS 
+# Min. Number of Epochs     > %% <                                             # DGPS_MINEPOCHS
+#                                                                              #
+# Output:                                                                      #
+#                                                                              #
+# RTCM     Port > %%%%% <                                                      # RTCM_OUT_PORT
+#                                                                              #
+# Sampling      > %% <                                                         # DGPS_OUTMODULO
+# File:         > %%%%%%%% <              SP3  > %%%%%%%% <                    # DGPS_OUTFILE DGPS_OUTFILE_SP3
+# Socket:  Host > %%%%%%%%%%%%%%%%%%%% <  Port > %%%%% <                       # DGPS_OUTSOCKET_HOST DGPS_OUTSOCKET_PORT
+#                                                                              #
+# Virtual Reference Stations                                                   #
+#                                                                              #
+# Generate GRS Data  RINEX Path           > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% <  # GRS_RNXOUTPATH
+#                    Port (predefined)    > %%%% <                             # GRS_OUTSOCKET_PORT
+#                    Port (on-demand)     > %%%% <                             # GRS_OUTSOCKET_ONDEMAND_PORT
+#                    Min. fixed stations  > %%%% <                             # GRS_MINSTAFIX
+#                                                                              #
+# > ID__ _________X_(m) _________Y_(m) _________Z_(m) ______antennaID_ <       # GRS_LIST
+# END_PANEL ####################################################################
+
+! include panel_DGPS_FKP_GRS_Info_RTNET_INP.xml
+
+# BEGIN_PANEL ESTIMATE_ORBITS == 1 #############################################
+# Precise Orbit Determination                                                  #
+#                                                                              #
+# Satellites      > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% <  (blank = all)     # POD_PRNS
+#                                                                              #
+# Gravity Field   > %%%%%%%%%%%%%%%%% <      degree > %%% <   order > %%% <    # POD_GRAVITY_FILE POD_GRAV_N_MAX POD_GRAV_M_MAX
+#                                                                              # 
+#                    Est.?  A Priori     Sigma_0     Noise                     # 
+# Initial Position                     > %%%%%% <  > %%%%%%%%%%%%%%% < (r,a,o) # POD_SIG_POS POD_NOISE_POS
+# Initial Velocity                     > %%%%%% <  > %%%%%%%%%%%%%%% < (r,a,o) # POD_SIG_VEL POD_NOISE_VEL
+# Atmospheric Drag   > % <  > %%%% <   > %%%%%% <  > %%%%% <                   # POD_EST_DRAG POD_APR_DRAG POD_SIG_DRAG POD_NOISE_DRAG
+# Radiation Pressure > % <  > %%%% <   > %%%%%% <  > %%%%% <                   # POD_EST_RAD POD_APR_RAD POD_SIG_RAD POD_NOISE_RAD
+#                                                                              #
+# Constrain Position  > %%%%% <                                                # POD_POS_CONSTR
+# Constrain Velocity  > %%%%% <                                                # POD_VEL_CONSTR
+# END_PANEL ####################################################################
+
