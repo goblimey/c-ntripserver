@@ -1,6 +1,4 @@
 /*
- * $Id: ntripserver.c 8789 2019-08-05 08:31:56Z stoecker $
- *
  * Copyright (c) 2003...2019
  * German Federal Agency for Cartography and Geodesy (BKG)
  * Dirk Stöcker (Alberding GmbH)
@@ -9,6 +7,12 @@
  * for streaming GNSS data over the Internet.
  *
  * Designed by Informatik Centrum Dortmund http://www.icd.de
+ * 
+ * This github version is based on BKG's Version 8789 2019-08-05,
+ * enhanced to take input from stdin.  Simon Ritchie June 2020.
+ * For the latest BKG version, install the svn tool and run this:
+ * 
+ *     svn checkout --username guest --password guest https://software.rtcm-ntrip.org/svn/trunk
  *
  * The BKG disclaims any liability nor responsibility to any person or
  * entity with respect to any loss or damage caused, or alleged to be
@@ -524,7 +528,18 @@ int main(int argc, char **argv)
     {
     case INFILE:
       {
-        if((gps_file = open(filepath, O_RDONLY)) < 0)
+        if (strcmp("-", filepath) == 0)
+        {
+          // Enhancement to work from the standard input channel.  If the input is from
+          // a file and the filename is "-", use stdin as the message source.  This is
+          // meant to be used with the ntripserver at the end of a pipe with something
+          // like the rtcmfilter at the other end.  (The rtcmfilter reads a stream of
+          // messages from a source, discards all but RTCM messages and writes any
+          // RTCM messages to stdout.)
+          // Simon Ritchie June 2020
+          gps_file = STDIN_FILENO;
+        }
+        else if((gps_file = open(filepath, O_RDONLY)) < 0)
         {
           perror("ERROR: opening input file");
           exit(1);
